@@ -1,9 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { TrendingDown, TrendingUp, Zap, Gem } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
 import { motion } from "framer-motion";
 
 export default function Project4Story() {

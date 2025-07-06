@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { TrendingUp, Zap, CloudCheck, Award } from "lucide-react";
-import Link from "next/link";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 

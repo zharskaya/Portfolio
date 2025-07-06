@@ -1,10 +1,7 @@
 import { projects } from '@/lib/projects-data';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 import React, { Suspense } from 'react';
-import { usePathname } from "next/navigation";
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollToTopButton } from '@/components/ui/scroll-to-top-button';

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { TrendingDown, TrendingUp, Zap, Gem } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
