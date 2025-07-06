@@ -12,13 +12,13 @@ async function ProjectStory({ slug }: { slug: string }) {
 }
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = params;
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
