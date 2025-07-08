@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { TrendingDown, TrendingUp, Zap, Gem } from "lucide-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ImageZoom } from '@/components/ui/image-zoom';
 
