@@ -4,6 +4,7 @@ import React from 'react';
 import { TrendingDown, TrendingUp, Zap, Gem } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ImageZoom } from '@/components/ui/image-zoom';
 
 export default function Project3Story() {
   return (
@@ -13,9 +14,8 @@ export default function Project3Story() {
       {/* Overview Section */}
       <motion.section
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="container"
       >
         <div>
@@ -39,7 +39,7 @@ export default function Project3Story() {
             Design leadership, UX/UI design for mobile, Prototyping, Usability testing
           </p>
         </div>
-
+        
         <div>
           <h2 className='text-primary'>Signals of Success</h2>
           <ul className='px-0 space-y-6'>
@@ -80,7 +80,7 @@ export default function Project3Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -97,12 +97,12 @@ export default function Project3Story() {
             <li>Hardware Development</li>
             <li>Marketing</li>
         </ul>
-        </motion.section>
+      </motion.section>
 
-        <motion.section
+      <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -110,7 +110,7 @@ export default function Project3Story() {
         <p>The design process was structured, iterative, and grounded in continuous feedback. The illustration below shows how we aligned workstreams to deliver a unified experience across platforms and product touchpoints.</p>
         
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/new-onboarding-02.jpg"
             alt="Design process overview showing the journey from research to implementation"
             width={1680}
@@ -126,7 +126,7 @@ export default function Project3Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >

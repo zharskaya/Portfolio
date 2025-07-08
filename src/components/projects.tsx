@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -22,15 +22,16 @@ export const iconMap = {
   Star
 };
 
-function ProjectCard({ project, index }: { project: Project, index: number }) {
+function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Project, index: number, shouldAnimateImmediately: boolean }) {
   return (
     <Link href={`/projects/${project.slug}`} className="group block w-full">
       <motion.div
-        className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 rounded-2xl overflow-hidden"
-        initial={{ opacity: 0, y: 80, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 rounded-2xl overflow-hidden group-hover:bg-background"
+        initial={{ opacity: 0, y: 24, scale: 0.96 }}
+        animate={shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
+        whileInView={!shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
         transition={{ duration: 0.8, delay: index * 0.10, ease: 'easeOut' }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={!shouldAnimateImmediately ? { once: true, amount: 0.2 } : undefined}
       >
         {/* Image */}
         <div className="relative w-full md:w-1/2 aspect-[1280/960]">
@@ -71,8 +72,8 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
           </div>
           <div className="mt-4 p-0">
             <Button 
-              variant="ghost" 
-              className="flex items-center gap-2 pr-3 text-sm font-semibold transition-all duration-500 ease-in-out ml-[-1rem] group-hover:translate-x-4 group-hover:bg-primary group-hover:text-primary-foreground"
+              variant="outline" 
+              className="flex items-center gap-2 pr-3 font-semibold transition-all hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground"
             >
               View full story <ArrowRight className="ml-1 h-3 w-3" />
             </Button>
@@ -98,18 +99,28 @@ export function Projects({ isHeroAnimationComplete, onAnimationComplete }: Proje
       transition={{ duration: 0.5 }}
       onAnimationComplete={onAnimationComplete}
     >
-      <div className="mx-auto text-center px-6 md:px-8 xl:px-12">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="mx-auto text-center px-6 md:px-8 xl:px-12"
+      >
         <h2>
           Driving Impact Through Design
         </h2>
         <p>
           A selection of work that blends product thinking, user insight, and design craft to drive business outcomes
         </p>
-      </div>
+      </motion.div>
 
       <div className="mx-auto flex flex-col gap-8 sm:gap-12 md:gap-16 lg:gap-20 pt-6 sm:pt-8 md:pt-10 lg:pt-12">
         {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={index}
+            shouldAnimateImmediately={index === 0}
+          />
         ))}
       </div>
     </motion.section>

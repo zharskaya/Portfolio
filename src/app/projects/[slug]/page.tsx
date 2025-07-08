@@ -29,10 +29,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <div className="mx-auto py-2 md:py-8 bg-primary-foreground">
       <ScrollToTopButton />
       <div className="container mx-auto">
-        <div className="mb-0">
+        <div className="mb-0 md:mb-1">
           <Link href="/#projects">
-            <Button variant="ghost" size="sm" className="gap-2 pl-3 text-sm font-semibold transition-all duration-500 ease-in-out ml-[-1rem] hover:translate-x-4">
-              <ArrowLeft className="mr-1 h-4 w-4" />
+            <Button variant="link" className="gap-2 px-0 font-semibold">
+              <ArrowLeft className="h-4 w-4" />
               Back to Works
             </Button>
           </Link>

@@ -16,6 +16,12 @@ export function Logo({ className, ...props }: React.SVGProps<SVGSVGElement>) {
       aria-label="Logo"
       {...props}
     >
+      <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#02A7AD" />
+          <stop offset="100%" stopColor="#7B6BED" />
+        </linearGradient>
+      </defs>
       <circle cx="128" cy="128" r="120" fill="white" />
       <path
         className={className}

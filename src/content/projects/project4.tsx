@@ -5,18 +5,15 @@ import { motion } from "framer-motion";
 
 export default function Project4Story() {
   return (
-    <div className="space-y-12 md:space-y-16">
-
+    <div className="space-y-12 md:space-y-16 min-h-[60vh]">
       <motion.section
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="container"
       >
-        <h2 className='text-primary'>Still sketching the story… check back soon!</h2>  
+        <p>Still sketching the story… check back soon!</p>  
       </motion.section>
-      
     </div>
   );
 } 

@@ -16,11 +16,11 @@ html {
     --popover-foreground: 23 45 65;
     --primary: 23 45 65;
     --primary-foreground: 255 255 255;
-    --secondary: 245 247 250;
-    --secondary-foreground: 58 124 177;
+    --secondary: 230 241 250;
+    --secondary-foreground: 77 156 209;
     --muted: 174 186 204;
     --muted-foreground: 83 101 133;
-    --accent: 58 124 177;
+    --accent: 77 156 209;
     --accent-foreground: 230 241 250;
     --destructive: 239 68 68;
     --destructive-foreground: 249 250 251;
@@ -50,10 +50,10 @@ html {
     @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight tracking-tight mb-1 sm:mb-2 md:mb-3 lg:mb-4;
   }
   p {
-    @apply text-base md:text-lg my-2 md:my-3 text-muted-foreground;
+    @apply text-base  my-2 md:my-3 text-muted-foreground;
   }
   ul {
-    @apply list-disc pl-6 text-base md:text-lg text-muted-foreground my-2 md:my-3;
+    @apply list-disc pl-6 text-base  text-muted-foreground my-2 md:my-3;
   }
   li {
     @apply mb-2 md:mb-3;
@@ -115,7 +115,7 @@ img, .next-image-class {
 }
 
 figure {
-  @apply flex flex-col items-center text-muted-foreground my-8 text-xs uppercase font-bold tracking-wide;
+  @apply flex flex-col items-center text-muted-foreground my-8 text-xs font-medium tracking-wide;
 }
 
 figcaption {
@@ -125,6 +125,11 @@ figcaption {
 a {
   text-decoration: none !important;
   transition: color 0.2s;
+}
+
+/* Logo gradient hover effect */
+.logo-gradient-hover:hover path {
+  fill: url(#logoGradient) !important;
 }
 
 

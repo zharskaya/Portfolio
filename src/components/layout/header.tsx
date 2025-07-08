@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
   },
 
   { 
-    href: "https://drive.google.com/file/d/1Qud6UzchhEmOyEuBMCx5Qa5SAr20YS71/view?usp=sharing", 
+    href: "/images/CV-Product-Designer-Zharskaya-2025.pdf", 
     label: "Resume", 
     external: true 
   },
@@ -76,8 +76,8 @@ export function Header() {
           className="w-full flex items-center"
         >
           <div className="mr-auto flex items-center">
-            <Link href="/#hero" className="mr-6 flex items-center space-x-2 group">
-              <Logo className="text-foreground transition-color group-hover:text-muted transition-transform group-hover:rotate-180 origin-center" width={32} height={32} />
+            <Link href="/#hero" className="mr-6 flex items-center space-x-2 group logo-gradient-hover">
+              <Logo className="text-foreground transition-all transition-transform group-hover:rotate-180 origin-center" width={32} height={32} />
               <span className="sr-only">Home</span>
             </Link>
             <nav className="hidden items-center space-x-6 text-xs uppercase tracking-wide font-bold md:flex">
@@ -87,7 +87,7 @@ export function Header() {
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
-                  className="text-foreground transition-color hover:text-muted flex items-center"
+                  className="text-foreground transition-color hover:text-accent flex items-center"
                 >
                   {item.label}
                   {item.label === 'Resume' && <ArrowUpRight className="ml-1 h-4 w-4" />}
@@ -134,7 +134,7 @@ export function Header() {
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
                         onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center gap-2 rounded-lg py-2 text-foreground transition-colors hover:text-muted"
+                        className="flex items-center gap-2 rounded-lg py-2 text-foreground transition-colors hover:text-accent"
                       >
                         {item.icon}
                         {item.label}

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { SearchCheck, PencilRuler, Gem, LocateFixed } from "lucide-react";
 
@@ -51,9 +51,10 @@ interface HeroProps {
   onAnimationComplete: () => void;
 }
 
-export function Hero({ onAnimationComplete }: HeroProps) {
+export const Hero = forwardRef<HTMLElement, HeroProps>(({ onAnimationComplete }, ref) => {
   return (
     <motion.section 
+      ref={ref}
       id="hero"
       className="section-container text-center pb-12 md:pb-16 pt-16 md:pt-24"
       variants={containerVariants}
@@ -100,4 +101,6 @@ export function Hero({ onAnimationComplete }: HeroProps) {
       </motion.div>
     </motion.section>
   );
-} 
+});
+
+Hero.displayName = "Hero"; 

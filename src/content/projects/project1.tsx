@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { TrendingUp, Zap, CloudCheck, Award } from "lucide-react";
 
 import Image from "next/image";
+import { ImageZoom } from "@/components/ui/image-zoom";
 import { motion } from "framer-motion";
 
 export default function Project1Story() {
@@ -30,9 +31,8 @@ export default function Project1Story() {
       {/* Video Demo */}
       <motion.section
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="section-container relative w-full pt-0 mt-0 rounded-lg"
       >
         <div
@@ -85,9 +85,8 @@ export default function Project1Story() {
       {/* Overview Section */}
       <motion.section
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="container"
       >
         <div>
@@ -114,7 +113,16 @@ export default function Project1Story() {
             Design leadership, User Reasearch, UX/UI design for mobile, Prototyping, Usability testing, Illustrations, Animations 
           </p>
         </div>
+      </motion.section>
 
+      {/* Impact */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
         <div>
           <h2 className='text-primary'>Ripples of Impact</h2>
           <ul className='px-0 space-y-6'>
@@ -161,7 +169,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -172,7 +180,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -197,12 +205,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-02.jpg"
             alt="Design process overview showing the journey from research to implementation"
             width={1680}
@@ -219,7 +227,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -246,7 +254,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="max-w-3xl mx-auto space-y-4"
       >
@@ -268,7 +276,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -305,7 +313,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -330,7 +338,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -342,12 +350,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-04.jpg"
             alt="Customer Journey Map To-Be"
             width={1680}
@@ -364,7 +372,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -377,16 +385,16 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-05.jpg"
             alt="Wireframes and user flows"
-            width={5812}
-            height={2726}
+            width={5879}
+            height={2878}
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 5812px) 100vw, 50vw"
@@ -399,7 +407,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -437,12 +445,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-07.jpg"
             alt="Mock-ups of the Pairing flow"
             width={1680}
@@ -459,7 +467,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -471,12 +479,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-06.jpg"
             alt="Configuration sticker"
             width={1680}
@@ -493,7 +501,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -527,7 +535,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
@@ -548,12 +556,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-09.jpg"
             alt="Mock-ups of the Configuration flow"
             width={1680}
@@ -570,7 +578,7 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
@@ -601,12 +609,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-10.jpg"
             alt="Some styles and components"
             width={2740}
@@ -622,12 +630,12 @@ export default function Project1Story() {
       <motion.section
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="space-y-4"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
-          <Image
+          <ImageZoom
             src="/images/projects/install-app-11.jpg"
             alt="Illustrations"
             width={1680}

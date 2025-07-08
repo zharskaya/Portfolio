@@ -19,7 +19,7 @@ export function Footer() {
           transition={{ duration: 0.5 }}
         >
           <div className="section-container text-center text-muted-foreground">
-            <p className="text-xs tracking-wide">&copy; {new Date().getFullYear()} Svetlana Zharskaya. Crafting incredible stuff since 2008. With humans, pixels, and a sprinkle of AI.</p>
+            <p className="text-xs tracking-wide">&copy; {new Date().getFullYear()} Svetlana Zharskaya. Crafting incredible stuff since 2008. Now with a sprinkle of AI.</p>
           </div>
         </motion.footer>
       )}
