@@ -71,7 +71,8 @@ export const projects: Project[] = [
     imageUrl: '/images/projects/project5-thumbnail.png',
     impacts: [
       { icon: 'Timer', text: '0 → 1 mobile app in 10 weeks' },
-      { icon: 'Component', text: 'Scalable design system' }
+      { icon: 'Component', text: 'Created scalable UI kit' },
+      { icon: 'Heart', text: 'Loved for clean, intuitive UI'}
     ],
   },
   {
