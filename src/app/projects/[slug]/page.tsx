@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 }
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects
+    .filter((project) => !!project.slug)
+    .map((project) => ({ slug: project.slug }));
 } 

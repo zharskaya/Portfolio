@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CloudCheck, Zap, FileBadge, Megaphone, SwatchBook, CircleCheck, TrendingDown, TrendingUp, Gem, Trophy, Star, Timer, Component, ArrowUpRight, Heart, PartyPopper, ClipboardCheck, Coins } from "lucide-react";
+import { ArrowRight, CloudCheck, Zap, FileBadge, Megaphone, SwatchBook, CircleCheck, TrendingDown, TrendingUp, Gem, Trophy, Star, Timer, Component, ArrowUpRight, Heart, PartyPopper, Coins } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects, Project } from "@/lib/projects-data";
 
@@ -24,7 +24,6 @@ export const iconMap = {
   Component,
   Heart,
   PartyPopper,
-  ClipboardCheck,
   Coins
 };
 

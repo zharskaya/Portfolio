@@ -84,7 +84,7 @@ export const projects: Project[] = [
     imageUrl: '/images/projects/project6-thumbnail.png',
     impacts: [
       { icon: 'PartyPopper', text: '0 → 1 brand launch' },
-      { icon: 'ClipboardCheck', text: '89% quiz completion rate' },
+      { icon: 'CircleCheck', text: '89% quiz completion rate' },
       { icon: 'Coins', text: '39% quiz-to-purchase conversion' }
     ],
   },
