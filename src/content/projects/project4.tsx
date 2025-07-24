@@ -197,6 +197,27 @@ export default function Project4Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
+        className="space-y-4"
+      >
+        <figure className="section-container max-w-[1680px] mx-auto">
+          <ImageZoom
+            src="/images/projects/station-owner-app-04.jpg"
+            alt="End session animation steps"
+            width={1680}
+            height={1200}
+            className="object-contain w-full h-auto block"
+            priority
+            sizes="(max-width: 5812px) 100vw, 50vw"
+          />
+          <figcaption>End session animation steps</figcaption>
+        </figure>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
         <h2 className='text-primary'>More details are coming soon…</h2>  
