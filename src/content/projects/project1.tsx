@@ -125,43 +125,63 @@ export default function Project1Story() {
       >
         <div>
           <h2 className='text-primary'>Ripples of Impact</h2>
-          <ul className='px-0 space-y-6'>
-          <li className="flex gap-4">
-              <CloudCheck className="h-5 w-5 mt-1 shrink-0 text-primary" />
-              <div>
-                <div className='font-bold text-primary'>Achieved connectivity target</div> 
-                <div>96.5% of new-gen chargers connected to the backend</div>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <Zap className="h-5 w-5 mt-1 shrink-0 text-primary" />
-              <div>
-                <div className='font-bold text-primary'>3x faster configuration</div> 
-                <div>Installers reported reduced friction and time-on-site</div>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <TrendingUp className="h-5 w-5 mt-1 shrink-0 text-primary" />
-              <div>
-                <div className='text-primary font-bold'>Improved installaters' experience</div> 
-                <div>Positive feedback highlighted easier and more intuitive setup and testing</div>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <Award className="h-5 w-5 mt-1 shrink-0 text-primary" />
-              <div>
-                <div className='font-bold text-primary'>Recognised by customers</div> 
-                <div>EVBox Livo charging station was rated best overall by customers in <a href="https://www.p3-group.com/en/p3-updates/p3-wallbox-benchmark-23/" target="_blank" rel="noopener noreferrer" className="text-accent">P3 Group's 2023 Wallbox Benchmark</a>, standing out in every category—especially for its <b className='text-primary'>installer experience</b>, which scored <b className='text-primary'>88.7 / 100</b></div>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <Award className="h-5 w-5 mt-1 shrink-0 text-primary" />
-              <div>
-                <div className='font-bold text-primary'>Recognised by industry experts</div> 
-                <div><a href="https://www.faz.net/kaufkompass/vergleich/die-beste-wallbox/#evboxlivo" target="_blank" rel="noopener noreferrer" className="text-accent">Frankfurter Allgemeine Zeitung</a> has ranked EVBox Livo as <b className='text-primary'>the smartest charging station on the market</b></div>
-              </div>
-            </li>
-          </ul>
+          <div className="flex flex-col lg:flex-row w-full lg:items-start mt-6">
+            {/* Content */}
+            <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+              <ul className='px-0 space-y-6'>
+              <li className="flex gap-4">
+                  <CloudCheck className="h-5 w-5 mt-1 shrink-0 text-primary" />
+                  <div>
+                    <div className='font-bold text-primary'>Achieved connectivity target</div> 
+                    <div>96.5% of new-gen chargers connected to the backend</div>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <Zap className="h-5 w-5 mt-1 shrink-0 text-primary" />
+                  <div>
+                    <div className='font-bold text-primary'>3x faster configuration</div> 
+                    <div>Installers reported reduced friction and time-on-site</div>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <TrendingUp className="h-5 w-5 mt-1 shrink-0 text-primary" />
+                  <div>
+                    <div className='text-primary font-bold'>Improved installaters' experience</div> 
+                    <div>Positive feedback highlighted easier and more intuitive setup and testing</div>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <Award className="h-5 w-5 mt-1 shrink-0 text-primary" />
+                  <div>
+                    <div className='font-bold text-primary'>Recognised by customers</div> 
+                    <div>EVBox Livo charging station was rated best overall by customers in <a href="https://www.p3-group.com/en/p3-updates/p3-wallbox-benchmark-23/" target="_blank" rel="noopener noreferrer" className="text-accent">P3 Group's 2023 Wallbox Benchmark</a>, standing out in every category—especially for its <b className='text-primary'>installer experience</b>, which scored <b className='text-primary'>88.7 / 100</b></div>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <Award className="h-5 w-5 mt-1 shrink-0 text-primary" />
+                  <div>
+                    <div className='font-bold text-primary'>Recognised by industry experts</div> 
+                    <div><a href="https://www.faz.net/kaufkompass/vergleich/die-beste-wallbox/#evboxlivo" target="_blank" rel="noopener noreferrer" className="text-accent">Frankfurter Allgemeine Zeitung</a> has ranked EVBox Livo as <b className='text-primary'>the smartest charging station on the market</b></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            {/* Image */}
+            <div className="relative w-full lg:w-1/2 mt-4 sm:mt-5 lg:mt-0">
+              <figure className="section-container max-w-[1680px] mx-auto">
+                <ImageZoom
+                  src="/images/projects/install-app-13.jpg"
+                  alt="Impact visualization showing the success metrics and achievements"
+                  width={1680}
+                  height={1120}
+                  className="object-contain w-full h-auto block"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <figcaption>EVBox Livo and Install app awards</figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
       </motion.section>
 
@@ -447,14 +467,14 @@ export default function Project1Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="space-y-4"
+        className="container"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
           <ImageZoom
             src="/images/projects/install-app-07.jpg"
             alt="Mock-ups of the Pairing flow"
             width={1680}
-            height={589}
+            height={876}
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
@@ -558,14 +578,14 @@ export default function Project1Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="space-y-4"
+        className="container"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
           <ImageZoom
             src="/images/projects/install-app-09.jpg"
             alt="Mock-ups of the Configuration flow"
             width={1680}
-            height={589}
+            height={1712}
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
