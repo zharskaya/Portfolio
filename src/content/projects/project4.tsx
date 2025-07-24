@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Star, Trophy, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 export default function Project4Story() {
   return (
@@ -61,6 +62,64 @@ export default function Project4Story() {
             </li>
           </ul>
         </div>
+      </motion.section>
+
+      {/* Solar Charging Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
+        <div>
+          <h2 className='text-primary'>Charging with Solar Energy</h2>
+          <div className="flex flex-col lg:flex-row w-full lg:items-start">
+            {/* Content */}
+            <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+              <p>
+              For the first time, we introduced advanced hardware capabilities to a non-technical audience. The challenge was to define the most valuable settings for end users and present them with clarity and simplicity.
+              </p>
+              <p>After talking to hardware architects and a series of user interviews, I proposed introducing three predefined "charging modes" to make setup easier for non-technical users. Each mode combined technical settings into a clear, easy-to-understand option:</p>
+              <ul className='list-disc space-y-6'>
+                <li>
+                  <span className='font-bold text-primary'>Full Power</span> prioritizes maximum available charging speed regardless of weather conditions
+                </li>
+                <li>
+                  <span className='font-bold text-primary'>Hybrid</span> combines solar and grid energy, minimizing grid usage and reducing charging costs
+                </li>
+                <li>
+                  <span className='font-bold text-primary'>Full Solar</span> uses only solar energy for charging; the charging speed is slow and depends on weather conditions
+                </li>
+              </ul>
+            </div>
+            {/* Image */}
+            <div className="relative w-full lg:w-1/2 mt-4 sm:mt-5 lg:mt-0">
+              <figure className="section-container max-w-[1680px] mx-auto">
+                <Image
+                  src="/images/projects/station-owner-app-01.gif"
+                  alt="Changing charging modes"
+                  width={1680}
+                  height={1120}
+                  className="object-contain w-full h-auto block"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <figcaption>Charnge charging mode</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
+        <h2 className='text-primary'>More details are coming soon…</h2>  
       </motion.section>
 
     </div>
