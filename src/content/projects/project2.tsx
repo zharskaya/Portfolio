@@ -2,12 +2,32 @@
 
 import React from 'react';
 import { TrendingUp, Timer, CircleCheck, SwatchBook } from "lucide-react";
+import Image from "next/image";
 import { ImageZoom } from "@/components/ui/image-zoom";
 import { motion } from "framer-motion";
 
 export default function Project2Story() {
   return (
     <div className="space-y-12 md:space-y-16">  
+    
+    <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className=""
+      >
+        <figure className="section-container max-w-[1680px] mx-auto">
+          <Image
+            src="/images/projects/rebranding-01.jpg"
+            alt="New EVBox branding"
+            width={1680}
+            height={840}
+            className="object-contain w-full h-auto block"
+            priority
+            sizes="(max-width: 1680px) 100vw, 50vw"
+          />
+        </figure>
+      </motion.section>
 
       {/* Overview Section */}
       <motion.section

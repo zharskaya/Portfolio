@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from "framer-motion";
 import { Star, Trophy, TrendingUp } from "lucide-react";
 import Image from "next/image";
+import { ImageZoom } from "@/components/ui/image-zoom";
 
 export default function Project4Story() {
   return (
@@ -99,13 +100,92 @@ export default function Project4Story() {
                 <Image
                   src="/images/projects/station-owner-app-01.gif"
                   alt="Changing charging modes"
-                  width={1680}
-                  height={1120}
+                  width={910}
+                  height={930}
                   className="object-contain w-full h-auto block"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <figcaption>Charnge charging mode</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Loading states */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
+        <h2 className='text-primary'>Loading statess</h2>
+        <p>
+          When I joined the team, I noticed that the app <b className='text-primary'>lacked loading states</b>, which led to a confusing experience, especially during longer waiting times. User feedback and app store reviews confirmed this: users were often frustrated by delays when interacting with the charging station.
+        </p>
+        <p>
+          I began by analyzing and categorizing all possible loading scenarios across the app.
+        </p>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
+        <figure className="section-container max-w-[1680px] mx-auto">
+          <ImageZoom
+            src="/images/projects/station-owner-app-03.jpg"
+            alt="Categorization of loading states"
+            width={1680}
+            height={1140}
+            className="object-contain w-full h-auto block"
+            priority
+            sizes="(max-width: 1680px) 100vw, 50vw"
+          />
+          <figcaption>Categorization of loading states</figcaption>
+        </figure>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="container"
+      >
+        <div>
+          
+          <div className="flex flex-col lg:flex-row w-full lg:items-start">
+            {/* Content */}
+            <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+              <p>
+                In collaboration with the development team, we identified a <b className='text-primary'>key technical limitation: communication</b> between the app and the charging station was indirect, <b className='text-primary'>routed through backend services</b>. This caused noticeable delays in some cases, especially when ending a charging session.
+              </p>
+              <p>
+                While the dev teams worked on performance optimizations, I focused on <b className='text-primary'>improving perceived responsiveness</b>. For longer loading times, I introduced <b className='text-primary'>contextual animations</b> and <b className='text-primary'>informative messages</b> to help users understand what was happening behind the scenes.
+              </p>
+              <p>
+                For example, ending a charging session involves several backend steps: sending a request, waiting for confirmation, and loading the session report. I replaced the existing static screen with several clear animated stages, allowing users to exit earlier without losing any data.
+              </p>
+            </div>
+            {/* Image */}
+            <div className="relative w-full lg:w-1/2 mt-4 sm:mt-5 lg:mt-0">
+              <figure className="section-container max-w-[1680px] mx-auto">
+                <Image
+                  src="/images/projects/station-owner-app-02.gif"
+                  alt="End charging session loading experience "
+                  width={910}
+                  height={930}
+                  className="object-contain w-full h-auto block"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <figcaption>End charging session loading experience</figcaption>
               </figure>
             </div>
           </div>
