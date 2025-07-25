@@ -10,8 +10,8 @@ export default function Project4Story() {
   return (
     <div className="space-y-12 md:space-y-16 min-h-[60vh]">
       
-{/* Overview Section */}
-<motion.section
+      {/* Overview Section */}
+      <motion.section
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
