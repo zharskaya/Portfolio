@@ -104,6 +104,7 @@ export default function Project4Story() {
                   height={930}
                   className="object-contain w-full h-auto block"
                   priority
+                  unoptimized
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <figcaption>Charnge charging mode</figcaption>
@@ -183,7 +184,8 @@ export default function Project4Story() {
                   height={930}
                   className="object-contain w-full h-auto block"
                   priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  unoptimized
+                  sizes="(max-width: 1024px) 50vw, 50vw"
                 />
                 <figcaption>End charging session loading experience</figcaption>
               </figure>
