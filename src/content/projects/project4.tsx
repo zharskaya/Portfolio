@@ -159,8 +159,8 @@ export default function Project4Story() {
         className="container"
       >
         <div>
-          
-          <div className="flex flex-col lg:flex-row w-full lg:items-start">
+          <h2 className='text-primary'>Loading States</h2>
+          <div className="flex flex-col lg:flex-row w-full lg:items-start mt-6">
             {/* Content */}
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
               <p>
