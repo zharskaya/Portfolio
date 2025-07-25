@@ -160,7 +160,6 @@ export default function Project4Story() {
         className="container"
       >
         <div>
-          <h2 className='text-primary'>Loading States</h2>
           <div className="flex flex-col lg:flex-row w-full lg:items-start mt-6">
             {/* Content */}
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
@@ -206,7 +205,7 @@ export default function Project4Story() {
             src="/images/projects/station-owner-app-04.jpg"
             alt="End session animation steps"
             width={1680}
-            height={1200}
+            height={834}
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 5812px) 100vw, 50vw"
