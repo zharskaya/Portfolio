@@ -197,7 +197,7 @@ export default function Project4Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="space-y-4"
+        className="container"
       >
         <figure className="section-container max-w-[1680px] mx-auto">
           <ImageZoom
