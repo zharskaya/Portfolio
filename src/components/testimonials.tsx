@@ -49,9 +49,6 @@ export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
   useEffect(() => {
     const updateCardsPerView = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const cardWidth = containerWidth / 2; // Since cards are lg:w-1/2 on large screens
-        
         // If container is wide enough to show 2 cards comfortably
         if (window.innerWidth >= 1024) {
           setCardsPerView(2);
