@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
   {
     id: '1',
     quote: `Sveta is one of the most talented UX design professionals I've worked with. She fundamentally transformed how our customers experienced our products, making complex functionalities accessible and enjoyable to use.
-            When our team faced challenging circumstances and needed strong leadership, Sveta stepped up without hesitation to manage the design team. She did a remarkable job ensuring everyone worked in the same direction with consistency and purpose, while fostering close collaboration between product, engineering, and design teams.`,
+            When our team faced challenging circumstances and needed strong leadership, Sveta stepped up without hesitation to manage the design team. She did a remarkable job ensuring everyone worked in the same direction with consistency and purpose.`,
     name: "Natasa Jovanovic",
     title: "VP of Product and Engineering",
     company: "EVBox"
@@ -32,7 +32,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '4',
-    quote: `It's a pleasure to work with Sveta, and I am impressed by the amount and quality of the work that she gets done in a short time.  I like how she is always trying to find the best user experience, but at the same time takes time to understand technical limitations and not creating designs that are impossible to realise by the engineering teams. 
+    quote: `It's a pleasure to work with Sveta, and I am impressed by the amount and quality of the work that she gets done in a short time. 
             Sveta is fantastic at balancing between engineering limitations and optimising user experience, which in the end means that we get the maximum value out of the product within the given time-frame.`,
     name: "Jelle van Doornik",
     title: "Senior Product Manager, Smart Charging",
