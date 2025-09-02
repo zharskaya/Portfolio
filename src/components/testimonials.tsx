@@ -93,7 +93,7 @@ export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
           Words from Partners in Crime
         </h2>
         <p>
-          Testimonials from colleagues and clients who have worked with me
+          Testimonials from colleagues and clients who have worked with me on impactful design projects
         </p>
       </motion.div>
 
