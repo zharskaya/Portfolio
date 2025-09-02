@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
+import { Testimonials } from "@/components/testimonials";
 import { useAnimation } from "@/context/animation-provider";
 
 export default function Home() {
@@ -40,6 +41,7 @@ export default function Home() {
         isHeroAnimationComplete={isHeroAnimationComplete} 
         onAnimationComplete={() => setTimeout(() => setHeaderVisible(true), 600)} 
       />
+      <Testimonials isHeroAnimationComplete={isHeroAnimationComplete} />
     </>
   );
 }
