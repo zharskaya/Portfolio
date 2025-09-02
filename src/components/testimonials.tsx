@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ interface TestimonialsProps {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
+    <div className="flex-shrink-0 w-full lg:w-1/2 px-4">
       <motion.div
         className="bg-white rounded-xl p-6 md:p-8 h-full flex flex-col"
         whileHover={{ y: -4 }}
@@ -42,6 +42,29 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [cardsPerView, setCardsPerView] = useState(1);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Detect actual cards per view based on container width
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const cardWidth = containerWidth / 2; // Since cards are lg:w-1/2 on large screens
+        
+        // If container is wide enough to show 2 cards comfortably
+        if (window.innerWidth >= 1024) {
+          setCardsPerView(2);
+        } else {
+          setCardsPerView(1);
+        }
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
 
   // Auto-play functionality
   useEffect(() => {
@@ -49,23 +72,23 @@ export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => 
-        prevIndex >= testimonials.length - 1 ? 0 : prevIndex + 1
+        prevIndex >= testimonials.length - cardsPerView ? 0 : prevIndex + 1
       );
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, cardsPerView]);
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex >= testimonials.length - 1 ? 0 : prevIndex + 1
+      prevIndex >= testimonials.length - cardsPerView ? 0 : prevIndex + 1
     );
     setIsAutoPlaying(false);
   };
 
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex => 
-      prevIndex <= 0 ? testimonials.length - 1 : prevIndex - 1
+      prevIndex <= 0 ? testimonials.length - cardsPerView : prevIndex - 1
     ));
     setIsAutoPlaying(false);
   };
@@ -93,7 +116,7 @@ export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
           Words from Partners in Crime
         </h2>
         <p>
-          Testimonials from colleagues and clients who have worked with me on impactful design projects
+          Testimonials from colleagues and clients who have worked with me
         </p>
       </motion.div>
 
@@ -121,11 +144,12 @@ export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
           </Button>
 
           {/* Testimonial Cards Container */}
-          <div className="flex-1 mx-4 overflow-hidden">
+          <div ref={containerRef} className="flex-1 mx-4 overflow-hidden">
             <motion.div
+              key={cardsPerView} // Force re-render when cardsPerView changes
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / Math.min(3, testimonials.length))}%)`
+                transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`
               }}
             >
               {testimonials.map((testimonial) => (
