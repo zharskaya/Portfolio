@@ -20,13 +20,7 @@ export default function Project4Story() {
         <div>
             <h2 className='text-primary'>Context</h2>
             <p>
-              Over three years, I <b className='text-primary'>continuously evolved the user experience</b> of the EVBox Everon app introducing new features, refining interactions, and improving overall usability. I began with redesigning <b className='text-primary'>loading and errorstates</b> to create a more consistent experience and help users navigate waiting times with clarity
-            </p>
-            <p>
-              Key improvements included streamlined <b className='text-primary'>onboarding</b>, a smooth <b className='text-primary'>account deletion</b> flow, and introduction of an <b className='text-primary'>AI-powered help assistant</b>. I also enhanced map filters and enabled adhoc payments with credit card for public charging.
-            </p>
-            <p>
-              As EVBox hardware evolved, I enhanced the app to support new capabilities like <b className='text-primary'>auto-start, charging with solar energy, and advanced scheduling</b>. While reimagining the station owner experience I ensure seamless compatibility with legacy and third-party stations.
+              Over three years, I <b className='text-primary'>continuously evolved the user experience</b> of the EVBox Everon app introducing new features, refining interactions, and improving overall usability. 
             </p>
         </div>
 
@@ -122,13 +116,35 @@ export default function Project4Story() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
-        <h2 className='text-primary'>Loading statess</h2>
-        <p>
-          When I joined the team, I noticed that the app <b className='text-primary'>lacked loading states</b>, which led to a confusing experience, especially during longer waiting times. User feedback and app store reviews confirmed this: users were often frustrated by delays when interacting with the charging station.
-        </p>
-        <p>
-          I began by analyzing and categorizing all possible loading scenarios across the app.
-        </p>
+        <div>
+          <div className="flex flex-col lg:flex-row w-full lg:items-start mt-6">
+            {/* Content */}
+            <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+             <h2 className='text-primary'>Loading states</h2>
+             <p>
+               When I joined the team, I noticed that the app <b className='text-primary'>lacked loading states</b>, which led to a confusing experience, especially during longer waiting times. User feedback and app store reviews confirmed this: users were often frustrated by delays when interacting with the charging station.
+             </p>
+             <p>
+               I began by analyzing and categorizing all possible loading scenarios across the app.
+              </p>
+              </div>
+        {/*Image*/}
+        <div className="relative w-full lg:w-1/2 mt-4 sm:mt-5 lg:mt-0">
+        <figure className="section-container max-w-[1680px] mx-auto">
+          <ImageZoom
+            src="/images/projects/station-owner-app-03.jpg"
+            alt="Categorization of loading states"
+            width={1680}
+            height={1140}
+            className="object-contain w-full h-auto block"
+            priority
+            sizes="(max-width: 1680px) 100vw, 50vw"
+          />
+            <figcaption>Categorization of loading states</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </motion.section>
 
       <motion.section
@@ -140,15 +156,15 @@ export default function Project4Story() {
       >
         <figure className="section-container max-w-[1680px] mx-auto">
           <ImageZoom
-            src="/images/projects/station-owner-app-03.jpg"
-            alt="Categorization of loading states"
+            src="/images/projects/station-owner-app-05.jpg"
+            alt="Example of loading states"
             width={1680}
-            height={1140}
+            height={876}
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
           />
-          <figcaption>Categorization of loading states</figcaption>
+          <figcaption>Example of loading states</figcaption>
         </figure>
       </motion.section>
 
@@ -163,14 +179,26 @@ export default function Project4Story() {
           <div className="flex flex-col lg:flex-row w-full lg:items-start mt-6">
             {/* Content */}
             <div className="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+             <h2 className='text-primary'>Contextual animations</h2>
+             <p>
+               Some actions in the app took a long time to process, sometimes over 30 seconds. To make these waits feel shorter, I designed contextual animations and messages that explained what was happening in the background.
+             </p>
+             <p>
+               One example was ending a charging session: instead of showing a static loading screen, I introduced clear animated stages:
+             </p>
+             <ul className='list-disc space-y-6'>
+                <li>
+                  Request sent
+                </li>
+                <li>
+                  Confirmation
+                </li>
+                <li>
+                  Loading session report
+                </li>
+              </ul>
               <p>
-                In collaboration with the development team, we identified a <b className='text-primary'>key technical limitation: communication</b> between the app and the charging station was indirect, <b className='text-primary'>routed through backend services</b>. This caused noticeable delays in some cases, especially when ending a charging session.
-              </p>
-              <p>
-                While the dev teams worked on performance optimizations, I focused on <b className='text-primary'>improving perceived responsiveness</b>. For longer loading times, I introduced <b className='text-primary'>contextual animations</b> and <b className='text-primary'>informative messages</b> to help users understand what was happening behind the scenes.
-              </p>
-              <p>
-                For example, ending a charging session involves several backend steps: sending a request, waiting for confirmation, and loading the session report. I replaced the existing static screen with several clear animated stages, allowing users to exit earlier without losing any data.
+                This gave users a sense of progress and even allowed them to exit earlier without losing data.  
               </p>
             </div>
             {/* Image */}
