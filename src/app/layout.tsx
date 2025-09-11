@@ -10,7 +10,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Svetlana Zharskaya | Product Design Lead",
+  title: "Svetlana Zharskaya | Product Design Leader",
   description: "Portfolio of Svetlana Zharskaya, a Product Design Lead making complex feel simple.",
 };
 

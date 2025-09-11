@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ImageZoom } from "@/components/ui/image-zoom";
 import { motion } from "framer-motion";
 
-export default function Project2Story() {
+export default function Project5Story() {
   return (
     <div className="space-y-12 md:space-y-16">  
     

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { ImageZoom } from "@/components/ui/image-zoom";
 import { motion } from "framer-motion";
 
-export default function Project1Story() {
+export default function Project6Story() {
   const videoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
