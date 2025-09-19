@@ -120,7 +120,16 @@ export default function Project5Story() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="container"
       >
-        <h2 className='text-primary'>More details are coming soon…</h2>  
+        <h3 className='text-primary'>Requirements</h3>  
+        <ul className="list-disc space-y-4 pl-6">
+          <li>Preserve white-label support</li>
+          <li>Minimize development complexity</li>
+          <li>Follow WCAG 2.1 AA accessibility</li>
+          <li>Stay consistent with evbox.com to strengthen recognition</li>
+          <li>Ensure consistency across all touchpoints</li>
+        </ul>
+
+        <h3 className='text-primary'>Process</h3>
       </motion.section>
 
     </div>

@@ -101,7 +101,7 @@ export default function Project3Story() {
                   unoptimized
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <figcaption>Charnge charging mode</figcaption>
+                <figcaption>Change charging mode</figcaption>
               </figure>
             </div>
           </div>

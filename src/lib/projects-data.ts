@@ -7,6 +7,7 @@ export interface Project {
   tags: string[];
   imageUrl: string;
   impacts: { icon: string; text: string }[];
+  visible: boolean;
 }
 
 export const projects: Project[] = [
@@ -14,13 +15,14 @@ export const projects: Project[] = [
     id: '7',
     slug: 'project7',
     title: 'AI Coding Assistant. Advanced Context Engineering',
-    description: 'Empowered developers with advanced memory and context control to reduce irrelevant suggestions and speed up coding workflows',
+    description: 'Empowered developers with advanced context control to reduce irrelevant suggestions and speed up coding workflows',
     tags: ['AI-assisted Design', 'Developer Experience', 'UX Strategy', 'Prototyping'],
     imageUrl: '/images/projects/project7-thumbnail.png',
     impacts: [
-      { icon: 'TrendingDown', text: '30% fewer context-related errors' },
-      { icon: 'Zap', text: '2x faster task completion in testing' },
+      { icon: 'TrendingUp', text: '56% higher suggestion accuracy' },
+      { icon: 'Zap', text: '2x faster task completion' },
     ],
+    visible: true,
   },
   {
     id: '6',
@@ -34,6 +36,7 @@ export const projects: Project[] = [
       { icon: 'Zap', text: '3x Faster configuration' },
       { icon: 'FileBadge', text: '88.7/100 Installer experience score' }
     ],
+    visible: true,
   },
   {
     id: '5',
@@ -47,6 +50,7 @@ export const projects: Project[] = [
       { icon: 'SwatchBook', text: 'White label support' },
       { icon: 'CircleCheck', text: 'WCAG 2.1 compliant accessibility'}
     ],
+    visible: false,
   },
   {
     id: '4',
@@ -60,6 +64,7 @@ export const projects: Project[] = [
       { icon: 'Zap', text: '66% faster onboarding' },
       { icon: 'Gem', text: 'Freemium Model Launch' },
     ],
+    visible: true,
   },
   {
     id: '3',
@@ -73,6 +78,7 @@ export const projects: Project[] = [
       { icon: 'Trophy', text: 'Smartest charger award' },
       { icon: 'TrendingUp', text: 'Better user experience' }
     ],
+    visible: true,
   },
   {
     id: '2',
@@ -86,12 +92,13 @@ export const projects: Project[] = [
       { icon: 'Component', text: 'Created scalable UI kit' },
       { icon: 'Heart', text: 'Loved for clean, intuitive UI'}
     ],
+    visible: true,
   },
   {
     id: '1',
     externalUrl: 'https://www.behance.net/gallery/66465445/Creamly-website-design-UXUI-case-study',
     title: 'Cream.ly Website. All Your Skin Needs',
-    description: 'Crafted a minimal web experience to recommend natural skincare tailored to each user\'s unique skin',
+    description: 'Brand identity and website experience to recommend natural skincare tailored to each user\'s unique skin',
     tags: ['Visual Identity', 'UX Design', 'UI Design', 'Illustrations', 'User testing'],
     imageUrl: '/images/projects/project1-thumbnail.png',
     impacts: [
@@ -99,5 +106,6 @@ export const projects: Project[] = [
       { icon: 'CircleCheck', text: '89% quiz completion rate' },
       { icon: 'Coins', text: '39% quiz-to-purchase conversion' }
     ],
+    visible: true,
   },
 ]; 

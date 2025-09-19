@@ -62,16 +62,16 @@ export const Hero = forwardRef<HTMLElement, HeroProps>(({ onAnimationComplete },
       animate="show"
       onAnimationComplete={onAnimationComplete}
     >
-      <motion.h2 variants={itemVariants} className="text-muted font-extraboldt mb-0">
+      <motion.h2 variants={itemVariants} className="text-muted font-extrabold mb-0">
         Svetlana Zharskaya
       </motion.h2>
       <motion.h1 variants={itemVariants} className="font-black mt-0">
         Product Design Leader
       </motion.h1>
-      <motion.p variants={itemVariants} className="text-muted-foreground font-bold leading-tight mt-8 sm:mt-10 md:mt-12 lg:mt-14 mb-0">
+      <motion.p variants={itemVariants} className="text-muted-foreground font-bold leading-tight mt-8 sm:mt-10 md:mt-12 lg:mt-14 mb-0 mx-auto">
         Making complex feel simple.
       </motion.p>
-      <motion.p variants={itemVariants} className="text-muted-foreground font-bold leading-tight mt-1 md:mt-2">
+      <motion.p variants={itemVariants} className="text-muted-foreground font-bold leading-tight mt-1 md:mt-2 mx-auto">
         Leading teams that deliver.
       </motion.p>   
 

@@ -176,20 +176,22 @@ export function Projects({ isHeroAnimationComplete, onAnimationComplete }: Proje
         <h2>
           Driving Impact Through Design
         </h2>
-        <p>
+        <p className="mx-auto">
           A selection of work that blends product thinking, user insight, and design craft to drive business outcomes
         </p>
       </motion.div>
 
       <div className="mx-auto flex flex-col gap-8 sm:gap-12 md:gap-16 lg:gap-20 pt-6 sm:pt-8 md:pt-10 lg:pt-12">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            index={index}
-            shouldAnimateImmediately={index === 0}
-          />
-        ))}
+        {projects
+          .filter(project => project.visible)
+          .map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              shouldAnimateImmediately={index === 0}
+            />
+          ))}
       </div>
     </motion.section>
   );
