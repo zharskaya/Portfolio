@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image, { ImageProps } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 interface ImageZoomProps extends ImageProps {
   alt: string;
   className?: string;
+  caption?: string;
 }
 
-export function ImageZoom({ alt, className = '', ...props }: ImageZoomProps) {
+export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomProps) {
   const [open, setOpen] = useState(false);
   const lastActive = useRef<HTMLElement | null>(null);
   const [fitMode, setFitMode] = useState<'fit-width' | 'fit-height' | 'natural'>('fit-width');
@@ -64,34 +66,41 @@ export function ImageZoom({ alt, className = '', ...props }: ImageZoomProps) {
 
   return (
     <>
-      <Image
-        {...props}
-        alt={alt}
-        className={
-          (className ? className + ' ' : '') +
-          'object-contain w-full h-auto block rounded-sm cursor-zoom-in transition-transform duration-200 hover:scale-105'
-        }
-        onClick={e => {
-          lastActive.current = e.currentTarget as HTMLElement;
-          setOpen(true);
-        }}
-        tabIndex={0}
-        onKeyDown={e => { if (e.key === "Enter" || e.key === " ") setOpen(true); }}
-        role="button"
-        aria-label={`Zoom ${alt}`}
-      />
+      <div className="group cursor-zoom-in">
+        <Image
+          {...props}
+          alt={alt}
+          className={
+            (className ? className + ' ' : '') +
+            'object-contain w-full h-auto block rounded-sm transition-transform duration-200 group-hover:scale-105'
+          }
+          onClick={e => {
+            lastActive.current = e.currentTarget as HTMLElement;
+            setOpen(true);
+          }}
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === "Enter" || e.key === " ") setOpen(true); }}
+          role="button"
+          aria-label={`Zoom ${alt}`}
+        />
+        {caption && (
+          <figcaption className="text-center mt-2 leading-snug text-xs font-medium tracking-wide text-muted-foreground transition-transform duration-200 group-hover:scale-105">
+            {caption}
+          </figcaption>
+        )}
+      </div>
       <AnimatePresence>
         {open && (
           <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 overflow-y-auto"
-            initial={{ scale: 0.92, opacity: 0.7 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.92, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             onClick={e => e.stopPropagation()}
           >
             <button
-              className="fixed top-4 right-4 text-white text-2xl font-bold z-50 focus:outline-none focus:ring bg-black/60 rounded-full w-10 h-10 flex items-center justify-center"
+              className="fixed top-4 right-4 text-white z-50 focus:outline-none focus:ring bg-black/60 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/80 transition-colors"
               onClick={() => {
                 setOpen(false);
                 if (lastActive.current) lastActive.current.focus();
@@ -99,14 +108,14 @@ export function ImageZoom({ alt, className = '', ...props }: ImageZoomProps) {
               aria-label="Close"
               tabIndex={0}
             >
-              &times;
+              <X className="w-5 h-5" />
             </button>
             <motion.div
-              initial={{ scale: 0.96, opacity: 0.7 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.96, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 220, damping: 20, delay: 0.04 }}
-              className="flex items-center justify-center w-full h-full"
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut", delay: 0.05 }}
+              className="flex flex-col items-center justify-center w-full h-full"
             >
               <Image
                 {...props}
@@ -125,6 +134,11 @@ export function ImageZoom({ alt, className = '', ...props }: ImageZoomProps) {
                   updateFitMode(img.naturalWidth, img.naturalHeight);
                 }}
               />
+              {caption && (
+                <figcaption className="text-center mt-4 text-sm font-medium text-white">
+                  {caption}
+                </figcaption>
+              )}
             </motion.div>
           </motion.div>
         )}

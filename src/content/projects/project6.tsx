@@ -177,8 +177,8 @@ export default function Project6Story() {
                   className="object-contain w-full h-auto block"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  caption="EVBox Livo and Install app awards"
                 />
-                <figcaption>EVBox Livo and Install app awards</figcaption>
               </figure>
             </div>
           </div>
@@ -238,8 +238,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Design process"
           />
-          <figcaption>Design process</figcaption>
         </figure>
       </motion.section>
 
@@ -383,8 +383,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Customer Journey Map To-Be"
           />
-          <figcaption>Customer Journey Map To-Be</figcaption>
         </figure>
       </motion.section>
 
@@ -418,8 +418,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 5812px) 100vw, 50vw"
+            caption="Example of wireframes and user flows"
           />
-          <figcaption>Example of wireframes and user flows</figcaption>
         </figure>
       </motion.section>
 
@@ -478,8 +478,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Pairing with the charger"
           />
-          <figcaption>Pairing with the charger</figcaption>
         </figure>
       </motion.section>
 
@@ -512,8 +512,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Evolution of the Configuration Sticker"
           />
-          <figcaption>Evolution of the Configuration Sticker</figcaption>
         </figure>
       </motion.section>
 
@@ -589,8 +589,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Configuration wizard"
           />
-          <figcaption>Configuration wizard</figcaption>
         </figure>
       </motion.section>
 
@@ -642,8 +642,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 2740px) 100vw, 50vw"
+            caption="Sneak peek at some styles and components"
           />
-          <figcaption>Sneak peek at some styles and components</figcaption>
         </figure>
       </motion.section>
 
@@ -663,8 +663,8 @@ export default function Project6Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Example of Illustrations"
           />
-          <figcaption>Example of Illustrations</figcaption>
         </figure>
       </motion.section>
       

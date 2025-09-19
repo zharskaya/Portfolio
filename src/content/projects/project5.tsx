@@ -108,8 +108,8 @@ export default function Project5Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Design process timeline"
           />
-          <figcaption>Design process timeline</figcaption>
         </figure>
       </motion.section>
 

@@ -139,8 +139,8 @@ export default function Project3Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Categorization of loading states"
           />
-            <figcaption>Categorization of loading states</figcaption>
               </figure>
             </div>
           </div>
@@ -163,8 +163,8 @@ export default function Project3Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Example of loading states"
           />
-          <figcaption>Example of loading states</figcaption>
         </figure>
       </motion.section>
 
@@ -237,8 +237,8 @@ export default function Project3Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 5812px) 100vw, 50vw"
+            caption="End session animation steps"
           />
-          <figcaption>End session animation steps</figcaption>
         </figure>
       </motion.section>
 

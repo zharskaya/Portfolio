@@ -1,5 +1,6 @@
 "use client";
 
+import { ImageZoom } from '@/components/ui/image-zoom';
 import { motion } from 'framer-motion';
 import { Crosshair, TrendingUp, Zap, ShieldCheck, FileText, SlidersHorizontal } from 'lucide-react';
 import React from 'react';
@@ -310,6 +311,26 @@ export default function Project7Story() {
           </div>
         </div>
       </motion.section>
+      
+       <motion.section
+         initial={{ opacity: 0, y: 24 }}
+         whileInView={{ opacity: 1, y: 0 }}
+         viewport={{ once: true, amount: 0.1 }}
+         transition={{ duration: 0.7, ease: "easeOut" }}
+         className="container"
+       >
+         <h2 className="text-primary">User flow</h2>
+         <figure className="max-w-[1680px] mx-auto">
+           <ImageZoom
+             src="/images/projects/code-buddy-02.jpg"
+             alt="Code Buddy User Flow"
+             width={1680}
+             height={822}
+             className="object-contain w-full h-auto block rounded-lg"
+             caption="Sample user flow"
+           />
+         </figure>
+       </motion.section>
 
     </div>
   );

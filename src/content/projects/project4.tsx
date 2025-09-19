@@ -136,8 +136,8 @@ export default function Project4Story() {
             className="object-contain w-full h-auto block"
             priority
             sizes="(max-width: 1680px) 100vw, 50vw"
+            caption="Design process"
           />
-          <figcaption>Design process</figcaption>
         </figure>
       </motion.section>
 
