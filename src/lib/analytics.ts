@@ -83,7 +83,7 @@ export const analyticsConfig = {
   disable: shouldExcludeFromAnalytics(),
   
   // You can also add custom tracking configuration here
-  beforeSend: (event: any) => {
+  beforeSend: (event: Record<string, unknown>) => {
     // Additional filtering logic if needed
     return event;
   }

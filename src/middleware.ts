@@ -4,8 +4,7 @@ import { shouldExcludeFromAnalyticsServer } from '@/lib/analytics';
 
 export function middleware(request: NextRequest) {
   // Get the real IP address from headers
-  const ip = request.ip || 
-            request.headers.get('x-forwarded-for')?.split(',')[0] ||
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ||
             request.headers.get('x-real-ip') ||
             'unknown';
 
