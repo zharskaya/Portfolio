@@ -1,6 +1,5 @@
 "use client";
 
-import { ImageZoom } from '@/components/ui/image-zoom';
 import { motion } from 'framer-motion';
 import { Crosshair, TrendingUp, Zap, ShieldCheck, FileText, SlidersHorizontal } from 'lucide-react';
 import React from 'react';
