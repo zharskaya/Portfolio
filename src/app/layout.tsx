@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AnimationProvider } from "@/context/animation-provider";
 import { Analytics } from '@vercel/analytics/react';
+import { shouldExcludeFromAnalytics } from '@/lib/analytics';
 
 const inter = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -21,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="analytics-disabled" content={shouldExcludeFromAnalytics() ? 'true' : 'false'} />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -34,7 +38,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </AnimationProvider>
-        <Analytics />
+        {!shouldExcludeFromAnalytics() && <Analytics />}
       </body>
     </html>
   );
