@@ -72,6 +72,25 @@ export const shouldExcludeFromAnalyticsServer = (ip: string | null): boolean => 
   return isExcluded;
 };
 
+// Function to get real IP from request headers (for use in API routes)
+export const getRealIP = (request: Request): string | null => {
+  const forwarded = request.headers.get('x-forwarded-for');
+  const realIP = request.headers.get('x-real-ip');
+  const cfConnectingIP = request.headers.get('cf-connecting-ip');
+  
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  if (realIP) {
+    return realIP;
+  }
+  if (cfConnectingIP) {
+    return cfConnectingIP;
+  }
+  
+  return null;
+};
+
 // Helper function to convert IP to number for CIDR checking
 function ipToNumber(ip: string): number {
   return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet), 0) >>> 0;

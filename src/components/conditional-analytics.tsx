@@ -4,10 +4,10 @@ import { Analytics } from '@vercel/analytics/react';
 import { useAnalytics } from '@/hooks/use-analytics';
 
 export function ConditionalAnalytics() {
-  const shouldExclude = useAnalytics();
+  const { shouldExclude, isLoading } = useAnalytics();
   
-  // Don't load Vercel Analytics if user should be excluded
-  if (shouldExclude) {
+  // Don't load Vercel Analytics if user should be excluded or still loading
+  if (shouldExclude || isLoading) {
     return null;
   }
 

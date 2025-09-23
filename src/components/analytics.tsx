@@ -3,10 +3,10 @@
 import { useAnalytics } from '@/hooks/use-analytics';
 
 export function AnalyticsScripts() {
-  const shouldExclude = useAnalytics();
+  const { shouldExclude, isLoading } = useAnalytics();
   
-  // Don't load analytics if user should be excluded
-  if (shouldExclude) {
+  // Don't load analytics if user should be excluded or still loading
+  if (shouldExclude || isLoading) {
     return null;
   }
 
