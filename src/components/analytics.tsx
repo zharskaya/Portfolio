@@ -1,10 +1,12 @@
 "use client";
 
-import { shouldExcludeFromAnalytics } from '@/lib/analytics';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 export function AnalyticsScripts() {
+  const shouldExclude = useAnalytics();
+  
   // Don't load analytics if user should be excluded
-  if (shouldExcludeFromAnalytics()) {
+  if (shouldExclude) {
     return null;
   }
 

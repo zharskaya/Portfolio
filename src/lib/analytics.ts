@@ -12,7 +12,7 @@ export const shouldExcludeFromAnalytics = (): boolean => {
     }
   }
 
-  // Fallback: For development, exclude localhost and your local network
+  // For development, exclude localhost and your local network
   const isLocalhost = window.location.hostname === 'localhost' || 
                      window.location.hostname === '127.0.0.1' ||
                      window.location.hostname === '192.168.1.26' ||
