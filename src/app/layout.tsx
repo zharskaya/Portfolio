@@ -7,6 +7,7 @@ import { Header } from "@/components/layout/header";
 import { AnimationProvider } from "@/context/animation-provider";
 import { Analytics } from '@vercel/analytics/react';
 import { shouldExcludeFromAnalytics } from '@/lib/analytics';
+import { AnalyticsScripts } from '@/components/analytics';
 
 const inter = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="analytics-disabled" content={shouldExcludeFromAnalytics() ? 'true' : 'false'} />
+        <AnalyticsScripts />
       </head>
       <body
         className={cn(
