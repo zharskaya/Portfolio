@@ -5,15 +5,12 @@ import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AnimationProvider } from "@/context/animation-provider";
-import { shouldExcludeFromAnalytics } from '@/lib/analytics';
-import { AnalyticsScripts } from '@/components/analytics';
-import { ConditionalAnalytics } from '@/components/conditional-analytics';
 
 const inter = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Svetlana Zharskaya | Product Design Leader",
-  description: "Portfolio of Svetlana Zharskaya, a Product Design Lead making complex feel simple.",
+  description: "Portfolio of Svetlana Zharskaya, a Product Design Leader with a focus on AI-powered products, SaaS, and mobile apps",
 };
 
 export default function RootLayout({
@@ -23,10 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="analytics-disabled" content={shouldExcludeFromAnalytics() ? 'true' : 'false'} />
-        <AnalyticsScripts />
-      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -40,7 +33,6 @@ export default function RootLayout({
             <Footer />
           </div>
         </AnimationProvider>
-        <ConditionalAnalytics />
       </body>
     </html>
   );
