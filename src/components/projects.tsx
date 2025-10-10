@@ -47,9 +47,10 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
               alt={project.title}
               width={1280}
               height={960}
-              className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-xl"
-              sizes="(max-width: 1280x) 100vw, 50vw"
+              className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+              sizes="(max-width: 1280px) 100vw, 50vw"
               priority={true}
+              quality={95}
             />
           </div>
           {/* Content */}
@@ -108,9 +109,10 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
             alt={project.title}
             width={1280}
             height={960}
-            className="object-cover transition-transform duration-300 group-hover:scale-105 rounded-xl"
-            sizes="(max-width: 1280x) 100vw, 50vw"
+            className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+            sizes="(max-width: 1280px) 100vw, 50vw"
             priority={true}
+            quality={95}
           />
         </div>
         {/* Content */}

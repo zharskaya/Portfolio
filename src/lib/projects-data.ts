@@ -106,6 +106,6 @@ export const projects: Project[] = [
       { icon: 'CircleCheck', text: '89% quiz completion rate' },
       { icon: 'Coins', text: '39% quiz-to-purchase conversion' }
     ],
-    visible: true,
+    visible: false,
   },
 ]; 

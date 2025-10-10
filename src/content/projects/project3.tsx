@@ -98,7 +98,7 @@ export default function Project3Story() {
                   height={930}
                   className="object-contain w-full h-auto block"
                   priority
-                  unoptimized
+                  quality={95}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <figcaption>Change charging mode</figcaption>
@@ -138,6 +138,7 @@ export default function Project3Story() {
             height={1140}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Categorization of loading states"
           />
@@ -162,6 +163,7 @@ export default function Project3Story() {
             height={876}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Example of loading states"
           />
@@ -211,7 +213,7 @@ export default function Project3Story() {
                   height={930}
                   className="object-contain w-full h-auto block"
                   priority
-                  unoptimized
+                  quality={95}
                   sizes="(max-width: 1024px) 50vw, 50vw"
                 />
                 <figcaption>End charging session loading experience</figcaption>
@@ -236,6 +238,7 @@ export default function Project3Story() {
             height={834}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 5812px) 100vw, 50vw"
             caption="End session animation steps"
           />

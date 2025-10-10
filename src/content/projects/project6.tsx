@@ -175,8 +175,9 @@ export default function Project6Story() {
                   width={1680}
                   height={1120}
                   className="object-contain w-full h-auto block"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+            quality={95}
+            sizes="(max-width: 1024px) 100vw, 50vw"
                   caption="EVBox Livo and Install app awards"
                 />
               </figure>
@@ -237,6 +238,7 @@ export default function Project6Story() {
             height={512}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Design process"
           />
@@ -286,6 +288,7 @@ export default function Project6Story() {
             height={718}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
           />
           <figcaption>The fun of testing competitor charging stations and early EVBox prototypes</figcaption>
@@ -382,6 +385,7 @@ export default function Project6Story() {
             height={2936}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Customer Journey Map To-Be"
           />
@@ -417,6 +421,7 @@ export default function Project6Story() {
             height={2878}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 5812px) 100vw, 50vw"
             caption="Example of wireframes and user flows"
           />
@@ -477,6 +482,7 @@ export default function Project6Story() {
             height={876}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Pairing with the charger"
           />
@@ -511,6 +517,7 @@ export default function Project6Story() {
             height={314}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Evolution of the Configuration Sticker"
           />
@@ -567,6 +574,7 @@ export default function Project6Story() {
             height={840}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
           />
           <figcaption>Usability test online setup. From left to right: Notes, Figma prototype, Script, Product Owner, Participant, Myself.</figcaption>
@@ -588,6 +596,7 @@ export default function Project6Story() {
             height={1712}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Configuration wizard"
           />
@@ -641,6 +650,7 @@ export default function Project6Story() {
             height={1555}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 2740px) 100vw, 50vw"
             caption="Sneak peek at some styles and components"
           />
@@ -662,6 +672,7 @@ export default function Project6Story() {
             height={643}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Example of Illustrations"
           />

@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AnimationProvider } from "@/context/animation-provider";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </AnimationProvider>
+        <Analytics />
       </body>
     </html>
   );

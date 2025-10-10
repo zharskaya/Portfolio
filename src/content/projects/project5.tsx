@@ -24,6 +24,7 @@ export default function Project5Story() {
             height={840}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
           />
         </figure>
@@ -107,6 +108,7 @@ export default function Project5Story() {
             height={647}
             className="object-contain w-full h-auto block"
             priority
+            quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Design process timeline"
           />

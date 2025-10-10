@@ -173,7 +173,7 @@ export default function Project7Story() {
                 height={930}
                 className="object-contain w-full h-auto block rounded-lg"
                 priority
-                unoptimized
+                quality={95}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <figcaption>Code Buddy Concept</figcaption>
