@@ -31,7 +31,7 @@ const navItems: NavItem[] = [
   },
 
   { 
-    href: "/images/CV-Product-Designer-AI-Zharskaya-2026", 
+    href: "/images/CV-Product-Designer-AI-Zharskaya-2026.pdf", 
     label: "Resume", 
     external: true 
   },
