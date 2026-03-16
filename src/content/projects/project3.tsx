@@ -286,16 +286,6 @@ export default function Project3Story() {
         </div>
       </motion.section>
 
-      <motion.section
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="section-container"
-      >
-        <p className='highlight text-primary'>More from this project is on the way...</p>
-      </motion.section>
-
     </div>
   );
 }
