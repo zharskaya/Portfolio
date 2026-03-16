@@ -51,6 +51,7 @@ const config = {
           DEFAULT: "rgb(var(--card) / <alpha-value>)",
           foreground: "rgb(var(--card-foreground) / <alpha-value>)",
         },
+        ghost: "rgb(var(--ghost) / <alpha-value>)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -58,7 +59,9 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
+        heading: ["var(--font-geist-mono)"],
         sans: ["var(--font-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
       keyframes: {
         "accordion-down": {

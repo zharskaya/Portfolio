@@ -46,6 +46,9 @@ next-env.d.ts
 .idea/
 *.swp
 *.swo
+.cursor/
+.claude/
+CLAUDE.md
 
 # OS
 Thumbs.db

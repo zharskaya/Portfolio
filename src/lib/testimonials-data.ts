@@ -17,8 +17,8 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '2',
-    quote: `Working closely with Sveta is great - she always asks the right questions, brings in-depth product and user sense, and - based on minimal set of inputs - quickly generates production-ready designs and design ideas. 
-            I am impressed by Sveta's focus on the actual user experience and her dedication to quality. This work ethic is “contagious” - it invites everyone around to do their best.`,
+    quote: `Working closely with Sveta is great — she always asks the right questions, brings in-depth product and user sense, and — based on minimal set of inputs — quickly generates production-ready designs and design ideas. 
+            I am impressed by Sveta's focus on the actual user experience and her dedication to quality. This work ethic is “contagious” — it invites everyone around to do their best.`,
     name: "Dino Sepac",
     title: "Product Manager, Installer Experience",
     company: "EVBox"
@@ -41,9 +41,9 @@ export const testimonials: Testimonial[] = [
   {
     id: '5',
     quote: `Whether I have blockers or not, I know I can reach out to Sveta for help. She always makes herself available through meetings or Slack and helps me understand or provide feedback on any subject I bring to her knowledge.`,
-    name: "Adelaide Chaold ",
-    title: "Junior UI Designer",
-    company: "EVBox"
+    name: "Adelaide Chaold",
+    title: "Product Designer",
+    company: "Devtech"
   },
   {
     id: '6',

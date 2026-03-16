@@ -15,24 +15,35 @@ export default function Home() {
     // Check if user is scrolled past the hero section on page load
     if (window.scrollY > 100) {
       setIsHeroAnimationComplete(true);
-    } else {
-      // Set up intersection observer to detect if hero is not visible
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (!entry.isIntersecting) {
-            setIsHeroAnimationComplete(true);
-          }
-        },
-        { threshold: 0.1 }
-      );
-      
-      if (heroRef.current) {
-        observer.observe(heroRef.current);
-      }
-      
-      return () => observer.disconnect();
+      return;
     }
-  }, []);
+
+    // Set up intersection observer to detect if hero is not visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setIsHeroAnimationComplete(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    // Safety fallback: if animation callbacks don't fire (e.g. reduced motion),
+    // reveal content after the expected animation duration
+    const fallback = setTimeout(() => {
+      setIsHeroAnimationComplete(true);
+      setHeaderVisible(true);
+    }, 2500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
+  }, [setHeaderVisible]);
 
   return (
     <>

@@ -1,31 +1,25 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CloudCheck, Zap, FileBadge, Megaphone, SwatchBook, CircleCheck, TrendingDown, TrendingUp, Gem, Trophy, Star, Timer, Component, ArrowUpRight, Heart, PartyPopper, Coins } from "lucide-react";
+import { ArrowUpRightIcon } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { projects, Project } from "@/lib/projects-data";
 
-export const iconMap = {
-  CloudCheck,
-  Zap,
-  FileBadge,
-  Megaphone,
-  SwatchBook,
-  CircleCheck,
-  TrendingDown,
-  TrendingUp,
-  Gem,
-  Trophy,
-  Star,
-  Timer,
-  Component,
-  Heart,
-  PartyPopper,
-  Coins
-};
+function ProjectTitle({ project }: { project: Project }) {
+  if (!project.projectName) {
+    return <h3>{project.title}</h3>;
+  }
+  return (
+    <>
+      <div className="font-heading font-light uppercase tracking-normal text-muted mb-2">
+        [ {project.projectName} ]
+      </div>
+      <h3 className="mb-4 md:mb-8">{project.title}</h3>
+    </>
+  );
+}
 
 function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Project, index: number, shouldAnimateImmediately: boolean }) {
   const isExternal = !!project.externalUrl;
@@ -33,7 +27,7 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
     return (
       <a href={project.externalUrl!} target="_blank" rel="noopener noreferrer" className="group block w-full">
         <motion.div
-          className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 rounded-2xl overflow-hidden group-hover:bg-background"
+          className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 overflow-hidden group-hover:bg-background"
           initial={{ opacity: 0, y: 24, scale: 0.96 }}
           animate={shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
           whileInView={!shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
@@ -47,43 +41,28 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
               alt={project.title}
               width={1280}
               height={960}
-              className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 1280px) 100vw, 50vw"
-              priority={true}
-              quality={95}
+              priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
+              quality={85}
             />
           </div>
           {/* Content */}
-          <div className="flex flex-col justify-center w-full md:w-1/2 md:pl-8 lg:pl-12 mt-4 sm:mt-5 md:mt-0">
+          <div className="flex flex-col justify-center w-full md:w-1/2 md:pl-12 lg:pl-20 mt-8 sm:mt-10 md:mt-0">
             <div>
-              <h3>{project.title}</h3>
+              <ProjectTitle project={project} />
               <p>{project.description}</p>
-              {project.impacts && (
-                <div className="flex flex-col flex-wrap gap-x-8 md:gap-x-12 lg:gap-x-14 gap-y-2 my-6 md:my-8">
-                  {project.impacts.map((impact, i) => (
-                    <div key={i} className="flex flex-row items-center text-left gap-4">
-                      {impact.icon &&
-                        React.createElement(iconMap[impact.icon as keyof typeof iconMap], { className: "w-5 h-5 flex-shrink-0 text-muted" })
-                      }
-                      <span className="text-xs md:text-sm uppercase tracking-wide font-bold text-muted">
-                        {impact.text.split('\n').map((line, j) => (
-                          <React.Fragment key={j}>
-                            {line}
-                            {j !== impact.text.split('\n').length - 1 && <br />}
-                          </React.Fragment>
-                        ))}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
-            <div className="mt-4 p-0">
-              <Button 
-                variant="outline" 
-                className="flex items-center gap-2 pr-3 font-semibold transition-all hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground"
+            <div className="mt-6 p-0">
+              <Button
+                asChild
+                variant="default"
+                className="inline-flex w-full md:w-auto items-center gap-2"
               >
-                View on Behance <ArrowUpRight className="ml-1 h-3 w-3" />
+                <span>
+                  View on Behance <ArrowUpRightIcon className="ml-1 h-3 w-3" />
+                </span>
               </Button>
             </div>
           </div>
@@ -95,7 +74,7 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
   return (
     <Link href={`/projects/${project.slug}`} className="group block w-full">
       <motion.div
-        className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 rounded-2xl overflow-hidden group-hover:bg-background"
+        className="flex flex-col md:flex-row w-full px-6 md:px-8 xl:px-12 py-8 md:py-16 lg:py-20 xl:py-24 overflow-hidden group-hover:bg-background"
         initial={{ opacity: 0, y: 24, scale: 0.96 }}
         animate={shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
         whileInView={!shouldAnimateImmediately ? { opacity: 1, y: 0, scale: 1 } : undefined}
@@ -109,43 +88,28 @@ function ProjectCard({ project, index, shouldAnimateImmediately }: { project: Pr
             alt={project.title}
             width={1280}
             height={960}
-            className="object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+            className="object-contain transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 1280px) 100vw, 50vw"
-            priority={true}
-            quality={95}
+            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
+            quality={85}
           />
         </div>
         {/* Content */}
-        <div className="flex flex-col justify-center w-full md:w-1/2 md:pl-8 lg:pl-12 mt-4 sm:mt-5 md:mt-0">
+        <div className="flex flex-col justify-center w-full md:w-1/2 md:pl-8 lg:pl-12 mt-8 sm:mt-10 md:mt-0">
           <div>
-            <h3>{project.title}</h3>
+            <ProjectTitle project={project} />
             <p>{project.description}</p>
-            {project.impacts && (
-              <div className="flex flex-col flex-wrap gap-x-8 md:gap-x-12 lg:gap-x-14 gap-y-2 my-6 md:my-8">
-                {project.impacts.map((impact, i) => (
-                  <div key={i} className="flex flex-row items-center text-left gap-4">
-                    {impact.icon &&
-                      React.createElement(iconMap[impact.icon as keyof typeof iconMap], { className: "w-5 h-5 flex-shrink-0 text-muted" })
-                    }
-                    <span className="text-xs md:text-sm uppercase tracking-wide font-bold text-muted">
-                      {impact.text.split('\n').map((line, j) => (
-                        <React.Fragment key={j}>
-                          {line}
-                          {j !== impact.text.split('\n').length - 1 && <br />}
-                        </React.Fragment>
-                      ))}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
-          <div className="mt-4 p-0">
-            <Button 
-              variant="outline" 
-              className="flex items-center gap-2 pr-3 font-semibold transition-all hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground"
+          <div className="mt-6 p-0">
+            <Button
+              asChild
+              variant="default"
+              className="inline-flex w-full md:w-auto items-center gap-2"
             >
-              View full story <ArrowRight className="ml-1 h-3 w-3" />
+              <span>
+                View full story
+              </span>
             </Button>
           </div>
         </div>
@@ -163,7 +127,7 @@ export function Projects({ isHeroAnimationComplete, onAnimationComplete }: Proje
   return (
     <motion.section
       id="projects"
-      className="w-full pt-20 md:pb-24 pb-12 md:pb-20 bg-primary-foreground"
+      className="w-full pt-20 pb-12 md:pb-20 bg-background"
       initial={{ opacity: 0, y: 20 }}
       animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
@@ -173,17 +137,24 @@ export function Projects({ isHeroAnimationComplete, onAnimationComplete }: Proje
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto text-center px-6 md:px-8 xl:px-12"
+        className="mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6 section-container"
       >
-        <h2>
-          Driving Impact Through Design
-        </h2>
-        <p className="mx-auto">
-          A selection of work that blends product thinking, user insight, and design craft to drive business outcomes
+        {/* Left on desktop: description */}
+        <p className="text-muted-foreground order-2 md:order-1 text-left md:w-1/2 mb-0">
+          {'// A selection of case studies blending product thinking and design craft to drive business outcomes'}
         </p>
+        {/* Right on desktop: heading */}
+        <div className="order-1 md:order-2 text-right md:w-1/2">
+          <span className="block font-heading text-ghost text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase" style={{ lineHeight: 0.85 }}>
+            Selected
+          </span>
+          <h2 className="mt-0 mb-0">
+            works
+          </h2>
+        </div>
       </motion.div>
 
-      <div className="mx-auto flex flex-col gap-8 sm:gap-12 md:gap-16 lg:gap-20 pt-6 sm:pt-8 md:pt-10 lg:pt-12">
+      <div className="mx-auto flex flex-col gap-8 sm:gap-12 md:gap-16 lg:gap-20 pt-6 sm:pt-8 md:pt-10 lg:pt-12 section-container">
         {projects
           .filter(project => project.visible)
           .map((project, index) => (

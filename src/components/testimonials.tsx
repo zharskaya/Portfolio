@@ -1,191 +1,212 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { testimonials, Testimonial } from "@/lib/testimonials-data";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { testimonials } from "@/lib/testimonials-data";
+import { cn } from "@/lib/utils";
 
 interface TestimonialsProps {
   isHeroAnimationComplete: boolean;
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
-  return (
-    <div className="flex-shrink-0 w-full lg:w-1/2 px-2 md:px-4">
-      <motion.div
-        className="bg-white rounded-xl p-4 md:p-8 h-full flex flex-col"
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.2 }}
-      >
-        <Quote className="w-6 h-6 md:w-8 md:h-8 text-muted/20 mb-4" />
-        <blockquote className="text-foreground text-sm md:text-base leading-relaxed mb-6 flex-grow">
-          {testimonial.quote.split('\n').map((paragraph, index) => (
-            <p key={index} className={index > 0 ? "mt-4" : ""}>
-              {paragraph}
-            </p>
-          ))}
-        </blockquote>
-        <div>
-          <div className="font-semibold text-foreground">
-            {testimonial.name}
-          </div>
-          <div className="text-muted-foreground text-sm md:text-base">
-            {testimonial.title} at {testimonial.company}
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
-
 export function Testimonials({ isHeroAnimationComplete }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [cardsPerView, setCardsPerView] = useState(1);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState(1);
+  const prefersReducedMotion = useRef(false);
 
-  // Detect actual cards per view based on container width
   useEffect(() => {
-    const updateCardsPerView = () => {
-      if (containerRef.current) {
-        // If container is wide enough to show 2 cards comfortably
-        if (window.innerWidth >= 1024) {
-          setCardsPerView(2);
-        } else {
-          setCardsPerView(1);
-        }
-      }
-    };
-
-    updateCardsPerView();
-    window.addEventListener('resize', updateCardsPerView);
-    return () => window.removeEventListener('resize', updateCardsPerView);
+    prefersReducedMotion.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
   }, []);
 
-  // Auto-play functionality
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || isPaused) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex >= testimonials.length - cardsPerView ? 0 : prevIndex + 1
-      );
+      setDirection(1);
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, cardsPerView]);
+  }, [isAutoPlaying, isPaused]);
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex >= testimonials.length - cardsPerView ? 0 : prevIndex + 1
-    );
-    setIsAutoPlaying(false);
+  const goToTestimonial = useCallback(
+    (index: number) => {
+      if (index === currentIndex) return;
+      setDirection(index > currentIndex ? 1 : -1);
+      setCurrentIndex(index);
+      setIsAutoPlaying(false);
+    },
+    [currentIndex]
+  );
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const next = (currentIndex + 1) % testimonials.length;
+        goToTestimonial(next);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        const prev =
+          (currentIndex - 1 + testimonials.length) % testimonials.length;
+        goToTestimonial(prev);
+      }
+    },
+    [currentIndex, goToTestimonial]
+  );
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: prefersReducedMotion.current ? 0 : dir * 40,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: prefersReducedMotion.current ? 0 : dir * -40,
+      opacity: 0,
+    }),
   };
 
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex => 
-      prevIndex <= 0 ? testimonials.length - cardsPerView : prevIndex - 1
-    ));
-    setIsAutoPlaying(false);
+  const transitionConfig = {
+    duration: prefersReducedMotion.current ? 0 : 0.4,
+    ease: "easeInOut" as const,
   };
 
-  const goToTestimonial = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
+  const testimonial = testimonials[currentIndex];
 
   return (
     <motion.section
       id="testimonials"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Partner feedback"
       className="w-full py-20 md:py-24"
       initial={{ opacity: 0, y: 20 }}
-      animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      animate={
+        isHeroAnimationComplete
+          ? { opacity: 1, y: 0 }
+          : { opacity: 0, y: 20 }
+      }
       transition={{ duration: 0.5 }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+      onKeyDown={handleKeyDown}
     >
+      {/* Screen reader announcements */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        Testimonial {currentIndex + 1} of {testimonials.length}:{" "}
+        {testimonial.name}, {testimonial.title} at {testimonial.company}
+      </div>
+
+      {/* Section header */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
-        animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        animate={
+          isHeroAnimationComplete
+            ? { opacity: 1, y: 0 }
+            : { opacity: 0, y: 24 }
+        }
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto text-center px-4 md:px-8 xl:px-12 mb-12 md:mb-16"
+        className="section-container flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-12 md:mb-16"
       >
-        <h2>
-          Words from Partners in Crime
-        </h2>
-        <p className="mx-auto">
-          Testimonials from colleagues and clients who have worked with me
+        <div className="md:w-1/2">
+          <span
+            className="block font-heading text-ghost text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase"
+            style={{ lineHeight: 0.85 }}
+          >
+            Partner
+          </span>
+          <h2 className="mt-0 mb-0">Feedback</h2>
+        </div>
+
+        <p className="text-muted-foreground max-w-md text-left md:w-1/2 mb-0">
+          {"// Testimonials from colleagues and clients I've worked with"}
         </p>
       </motion.div>
 
-      <motion.div 
-        className="relative max-w-7xl mx-auto px-2 md:px-8 xl:px-12"
+      {/* Testimonial content */}
+      <motion.div
+        className="section-container"
         initial={{ opacity: 0, y: 24 }}
-        animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        animate={
+          isHeroAnimationComplete
+            ? { opacity: 1, y: 0 }
+            : { opacity: 0, y: 24 }
+        }
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
       >
-        {/* Navigation Buttons */}
-        <motion.div 
-          className="flex justify-between items-center mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-        >
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={prevTestimonial}
-            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
-          </Button>
-
-          {/* Testimonial Cards Container */}
-          <div ref={containerRef} className="flex-1 mx-0 md:mx-2 overflow-hidden">
+        <div className="min-h-[280px] md:min-h-[220px]">
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
-              key={cardsPerView} // Force re-render when cardsPerView changes
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`
-              }}
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={transitionConfig}
+              className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-12"
             >
-              {testimonials.map((testimonial) => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
+              {/* Left column: Number + Name + Title */}
+              <div className="flex flex-col md:items-end md:text-right">
+                <span className="bracket-label text-foreground mb-1 md:mb-2">
+                  [ {String(currentIndex + 1).padStart(2, "0")} ]
+                </span>
+                <div className="font-heading font-semibold text-foreground text-sm md:text-base uppercase">
+                  {testimonial.name}
+                </div>
+                <div className="font-light text-muted-foreground text-sm md:text-base">
+                  {testimonial.title} at {testimonial.company}
+                </div>
+              </div>
+
+              {/* Right column: Quote text */}
+              <blockquote className="text-sm md:text-base leading-relaxed max-w-2xl">
+                {testimonial.quote.split("\n").map((paragraph, idx) => (
+                  <p key={idx} className={idx > 0 ? "mt-4" : "mt-0"}>
+                    {paragraph.trim()}
+                  </p>
+                ))}
+              </blockquote>
             </motion.div>
-          </div>
+          </AnimatePresence>
+        </div>
 
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={nextTestimonial}
-            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
-          </Button>
-        </motion.div>
-
-        {/* Dots Indicator */}
-        <motion.div 
-          className="flex justify-center gap-2 mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isHeroAnimationComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+        {/* Pagination */}
+        <nav
+          aria-label="Testimonial pagination"
+          className="flex items-center justify-center gap-4 md:gap-6 mt-12 md:mt-16"
         >
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToTestimonial(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                index === currentIndex
-                  ? "bg-primary w-8"
-                  : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-              }`}
-              aria-label={`Go to testimonial ${index + 1}`}
-            />
-          ))}
-        </motion.div>
+          {testimonials.map((_, idx) => {
+            const number = String(idx + 1).padStart(2, "0");
+            const isActive = idx === currentIndex;
+            return (
+              <button
+                key={idx}
+                onClick={() => goToTestimonial(idx)}
+                aria-label={`Go to testimonial ${idx + 1} of ${testimonials.length}`}
+                aria-current={isActive ? "step" : undefined}
+                className={cn(
+                  "bracket-label px-2 transition-colors duration-200",
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted hover:text-foreground"
+                )}
+              >
+                {isActive ? `[ ${number} ]` : number}
+              </button>
+            );
+          })}
+        </nav>
       </motion.div>
     </motion.section>
   );

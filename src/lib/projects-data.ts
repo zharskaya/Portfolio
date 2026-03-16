@@ -2,20 +2,27 @@ export interface Project {
   id: string;
   slug?: string;
   externalUrl?: string;
+  projectName?: string;
   title: string;
   description: string;
   tags: string[];
   imageUrl: string;
   impacts: { icon: string; text: string }[];
   visible: boolean;
+  titleGhost?: string;
+  titleBold?: string;
+  boldFirst?: boolean;
 }
 
 export const projects: Project[] = [
   {
     id: '7',
     slug: 'project7',
-    title: 'AI Coding Assistant. Advanced Context Engineering',
-    description: 'Empowered developers with advanced context control to reduce irrelevant suggestions and speed up coding workflows',
+    projectName: 'AI Coding Assistant',
+    title: 'Advanced Context Engineering',
+    titleGhost: 'Advanced',
+    titleBold: 'Context Engineering',
+    description: 'Identified why AI coding assistants hit adoption ceilings and designed context controls that improved suggestion accuracy by 56% in testing',
     tags: ['AI-assisted Design', 'Developer Experience', 'UX Strategy', 'Prototyping'],
     imageUrl: '/images/projects/project7-thumbnail.png',
     impacts: [
@@ -27,7 +34,11 @@ export const projects: Project[] = [
   {
     id: '6',
     slug: 'project6',
-    title: 'EVBox Install App',
+    projectName: 'EVBox',
+    title: 'Installer Experience. Reimagined',
+    titleGhost: 'Reimagined',
+    titleBold: 'Installer Experience.',
+    boldFirst: true,
     description: 'Help professional electricians configure and manage EVBox charging stations',
     tags: ['Design Leadership', 'Full Stack UX', 'UI Design'],
     imageUrl: '/images/projects/project6-thumbnail.png',
@@ -41,7 +52,10 @@ export const projects: Project[] = [
   {
     id: '5',
     slug: 'project5',
-    title: 'Strategic Rebranding of the EVBox Product Portfolio',
+    projectName: 'EVBox',
+    title: 'Strategic Rebranding',
+    titleGhost: 'Strategic',
+    titleBold: 'Rebranding',
     description: 'Reimagined the EVBox product portfolio with a bold new brand identity under tight resource constraints',
     tags: ['Design Leadership','Visual Design', 'Design System'],
     imageUrl: '/images/projects/project5-thumbnail.png',
@@ -55,7 +69,10 @@ export const projects: Project[] = [
   {
     id: '4',
     slug: 'project4',
-    title: 'EVBox Everon. Optimizing First-Time Use',
+    projectName: 'EVBox Everon',
+    title: 'From Broken Onboarding to Freemium Growth',
+    titleGhost: 'From Broken Onboarding',
+    titleBold: 'to Freemium Growth',
     description: 'Transformed the onboarding experience and introduced a freemium model to drive adoption, reduce support load, and unlock new revenue streams',
     tags: ['Design Leadership', 'Cross-platform UX', 'UI Design', 'Prototyping', 'User testing'],
     imageUrl: '/images/projects/project4-thumbnail.png',
@@ -69,21 +86,25 @@ export const projects: Project[] = [
   {
     id: '3',
     slug: 'project3',
-    title: 'EVBox Everon app. Smart Charging',
-    description: 'Enabled EV charging with solar energy, smart scheduling, and other user-focused improvements for station owners',
+    projectName: 'EVBox Everon app',
+    title: 'Turning Around the EV App Experience',
+    titleGhost: 'Turning Around the',
+    titleBold: 'EV App Experience',
+    description: 'Drove the EVBox Everon app from 3.2 to 4.4 stars by owning UX strategy, shipping key features, and fixing systemic gaps across the product',
     tags: ['Design Leadership', 'Research', 'UI Design', 'Prototyping', 'User testing'],
     imageUrl: '/images/projects/project3-thumbnail.png',
     impacts: [
       { icon: 'Star', text: '3.2 → 4.4 App Store rating uplift' },
       { icon: 'Trophy', text: 'Smartest charger award' },
-      { icon: 'TrendingUp', text: 'Better user experience' }
+      { icon: 'TrendingUp', text: 'Fewer support cases over time' }
     ],
     visible: true,
   },
   {
     id: '2',
     externalUrl: 'https://www.behance.net/gallery/99952295/Favreka-Part-II-UIUX-Case-study',
-    title: 'Favreka App. Your Favorites, All in One Place',
+    projectName: 'Favreka App',
+    title: 'Your Favorites. All in One Place',
     description: 'Seamless app experience to help users discover, save, and share things they love, from books to coffee shops to cult movies',
     tags: ['UX Design', 'UI Design', 'Animations', 'Prototyping', 'User testing'],
     imageUrl: '/images/projects/project2-thumbnail.png',
@@ -97,7 +118,8 @@ export const projects: Project[] = [
   {
     id: '1',
     externalUrl: 'https://www.behance.net/gallery/66465445/Creamly-website-design-UXUI-case-study',
-    title: 'Cream.ly Website. All Your Skin Needs',
+    projectName: 'Cream.ly Website',
+    title: 'All Your Skin Needs',
     description: 'Brand identity and website experience to recommend natural skincare tailored to each user\'s unique skin',
     tags: ['Visual Identity', 'UX Design', 'UI Design', 'Illustrations', 'User testing'],
     imageUrl: '/images/projects/project1-thumbnail.png',

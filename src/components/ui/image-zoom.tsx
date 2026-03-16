@@ -12,8 +12,11 @@ interface ImageZoomProps extends ImageProps {
 export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomProps) {
   const [open, setOpen] = useState(false);
   const lastActive = useRef<HTMLElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [fitMode, setFitMode] = useState<'fit-width' | 'fit-height' | 'natural'>('fit-width');
   const [naturalSize, setNaturalSize] = useState<{ width: number; height: number } | null>(null);
+  const [hovered, setHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -25,13 +28,18 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  // Focus management and ESC to close
+  // Focus management, ESC to close, Tab trap
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') { setOpen(false); return; }
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        closeButtonRef.current?.focus();
+      }
     }
     if (open) {
       window.addEventListener('keydown', handleKey);
+      closeButtonRef.current?.focus();
     } else {
       window.removeEventListener('keydown', handleKey);
     }
@@ -66,13 +74,21 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
 
   return (
     <>
-      <div className="group cursor-zoom-in">
+      <div
+        className="group relative"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
+      >
         <Image
           {...props}
           alt={alt}
           className={
             (className ? className + ' ' : '') +
-            'object-contain w-full h-auto block rounded-sm transition-transform duration-200 group-hover:scale-105'
+            'object-contain w-full h-auto block cursor-pointer'
           }
           onClick={e => {
             lastActive.current = e.currentTarget as HTMLElement;
@@ -83,8 +99,26 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
           role="button"
           aria-label={`Zoom ${alt}`}
         />
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              className="absolute pointer-events-none z-10 bg-foreground text-primary-foreground text-xs font-mono uppercase px-2 py-1 rounded-sm whitespace-nowrap"
+              style={{
+                left: mousePos.x,
+                top: mousePos.y,
+                transform: 'translate(-50%, -130%)',
+              }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15 }}
+            >
+              View full screen
+            </motion.div>
+          )}
+        </AnimatePresence>
         {caption && (
-          <figcaption className="text-center mt-2 leading-snug text-xs font-medium tracking-wide text-muted-foreground transition-transform duration-200 group-hover:scale-105">
+          <figcaption>
             {caption}
           </figcaption>
         )}
@@ -92,21 +126,24 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 overflow-y-auto"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image preview"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            onClick={e => e.stopPropagation()}
+            onClick={() => { setOpen(false); if (lastActive.current) lastActive.current.focus(); }}
           >
             <button
-              className="fixed top-4 right-4 text-white z-50 focus:outline-none focus:ring bg-black/60 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/80 transition-colors"
+              ref={closeButtonRef}
+              className="fixed top-4 right-4 text-primary-foreground z-50 focus:outline-none focus:ring bg-foreground/80 rounded-full w-10 h-10 flex items-center justify-center hover:bg-foreground transition-colors"
               onClick={() => {
                 setOpen(false);
                 if (lastActive.current) lastActive.current.focus();
               }}
-              aria-label="Close"
-              tabIndex={0}
+              aria-label="Close image preview"
             >
               <X className="w-5 h-5" />
             </button>
@@ -116,11 +153,12 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut", delay: 0.05 }}
               className="flex flex-col items-center justify-center w-full h-full"
+              onClick={e => e.stopPropagation()}
             >
               <Image
                 {...props}
                 alt={alt}
-                className="rounded-lg shadow-lg object-contain"
+                className="shadow-lg object-contain"
                 style={
                   fitMode === 'fit-width'
                     ? { width: '100vw', height: 'auto', maxWidth: '100vw', maxHeight: 'none', objectFit: 'contain' }
@@ -129,13 +167,14 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
                     : { width: naturalSize?.width, height: naturalSize?.height, objectFit: 'contain' }
                 }
                 priority={false}
-                onLoadingComplete={img => {
+                onLoad={e => {
+                  const img = e.currentTarget;
                   setNaturalSize({ width: img.naturalWidth, height: img.naturalHeight });
                   updateFitMode(img.naturalWidth, img.naturalHeight);
                 }}
               />
               {caption && (
-                <figcaption className="text-center mt-4 text-sm font-medium text-white">
+                <figcaption className="text-center mt-4 text-sm text-primary-foreground">
                   {caption}
                 </figcaption>
               )}

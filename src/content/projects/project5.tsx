@@ -8,15 +8,15 @@ import { motion } from "framer-motion";
 
 export default function Project5Story() {
   return (
-    <div className="space-y-12 md:space-y-16">  
+    <div className="project-content">  
     
     <motion.section
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className=""
+        className="section-container"
       >
-        <figure className="section-container max-w-[1680px] mx-auto">
+        <figure className="max-w-[1680px] mx-auto">
           <Image
             src="/images/projects/rebranding-01.jpg"
             alt="New EVBox branding"
@@ -35,36 +35,64 @@ export default function Project5Story() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="container"
+        className="section-container"
       >
-        <div>
-            <h2 className='text-primary'>Context</h2>
-            <p>
-            A last-minute strategic business priority shift required the product team to roll out a new brand identity across the entire product portfolio. This unplanned initiative conflicted with previously committed product work and critical feature timelines. Additional pressure came from the upcoming start of production for next-gen charging stations, which could not be delayed.
-            </p>
-        </div>
-        
-        <div>
-          <h2 className='text-primary'>Challenge</h2>
-          <p>
-            Apply the new EVBox branding across the full product portfolio with minimal development complexity and resource impact.
-          </p>
+        <h3 id="about" className="h3-section text-right">
+          <span className="block text-ghost">About</span>
+          <span className="block text-primary">the project</span>
+        </h3>
+
+        <div className="mt-10 md:mt-12 space-y-8">
+          {/* 01 — Context */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-12">
+            <div className="md:text-right">
+              <span className="bracket-label text-foreground block mb-1 md:mb-2">[ 01 ]</span>
+              <h4 className="mt-0">Context</h4>
+            </div>
+            <div className="[&>:first-child]:mt-0">
+              <p>
+                A last-minute strategic business priority shift required the product team to roll out a new brand identity across the entire product portfolio. This unplanned initiative conflicted with previously committed product work and critical feature timelines. Additional pressure came from the upcoming start of production for next-gen charging stations, which could not be delayed.
+              </p>
+            </div>
+          </div>
+
+          {/* 02 — Challenge */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-12">
+            <div className="md:text-right">
+              <span className="bracket-label text-foreground block mb-1 md:mb-2">[ 02 ]</span>
+              <h4 className="mt-0">Challenge</h4>
+            </div>
+            <div className="[&>:first-child]:mt-0">
+              <p>
+                Apply the new EVBox branding across the full product portfolio with minimal development complexity and resource impact.
+              </p>
+            </div>
+          </div>
+
+          {/* 03 — My Design Footprint */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 md:gap-12">
+            <div className="md:text-right">
+              <span className="bracket-label text-foreground block mb-1 md:mb-2">[ 03 ]</span>
+              <h4 className="mt-0">My Design Footprint</h4>
+            </div>
+            <div className="[&>:first-child]:mt-0">
+              <p>
+                Design leadership, Visual design strategy, Design system, Illustrations
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h2 className='text-primary'>My Design Footprint</h2>
-          <p>
-            Design leadership, Visual design strategy, Design system, Illustrations
-          </p>
-        </div>
-      
-        <h2 className='text-primary'>Outcomes That Matter</h2>
+        <h3 id="outcomes-that-matter" className="h3-section">
+          <span className="block text-ghost">Outcomes</span>
+          <span className="block text-primary">That Matter</span>
+        </h3>
         <ul className='px-0 space-y-6'>
         <li className="flex gap-4">
             <Timer className="h-5 w-5 mt-1 shrink-0 text-primary" />
             <div>
               <div className='font-bold text-primary'>New brand rolled out in record time</div> 
-              <div>Design proposal created and approved in under 3 weeks. Launched with minimum development overheat</div>
+              <div>Design proposal created and approved in under 3 weeks. Launched with minimum development overhead</div>
             </div>
           </li>
           <li className="flex gap-4">
@@ -97,17 +125,19 @@ export default function Project5Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="container"
+        className="section-container"
       >
-        <h2 className='text-primary'>Design process</h2>
-        <figure className="section-container max-w-[1680px] mx-auto">
+        <h3 id="design-process" className="h3-section">
+          <span className="block text-ghost">Design</span>
+          <span className="block text-primary">process</span>
+        </h3>
+        <figure className="max-w-[1680px] mx-auto">
           <ImageZoom
             src="/images/projects/rebranding-02.jpg"
             alt="Design process overview showing the journey from research to implementation"
             width={1680}
             height={647}
             className="object-contain w-full h-auto block"
-            priority
             quality={95}
             sizes="(max-width: 1680px) 100vw, 50vw"
             caption="Design process timeline"
@@ -120,9 +150,12 @@ export default function Project5Story() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="container"
+        className="section-container"
       >
-        <h3 className='text-primary'>Requirements</h3>  
+        <h3 className="h3-section">
+          <span className="block text-ghost">Design</span>
+          <span className="block text-primary">requirements</span>
+        </h3>  
         <ul className="list-disc space-y-4 pl-6">
           <li>Preserve white-label support</li>
           <li>Minimize development complexity</li>
@@ -131,7 +164,10 @@ export default function Project5Story() {
           <li>Ensure consistency across all touchpoints</li>
         </ul>
 
-        <h3 className='text-primary'>Process</h3>
+        <h3 className="h3-section">
+          <span className="block text-ghost">Design</span>
+          <span className="block text-primary">process</span>
+        </h3>
       </motion.section>
 
     </div>
