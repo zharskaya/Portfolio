@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Svetlana Zharskaya — Product Design Portfolio
 
-## Getting Started
+Staff-level product designer with a track record of shipping high-impact experiences across AI tools, EV infrastructure, and mobile. This is the source code for my personal portfolio site.
 
-First, run the development server:
+**Live site:** [sveta.design](https://sveta.design) *(update with your actual URL)*
+
+---
+
+## About Me
+
+I work at the intersection of design strategy, systems thinking, and execution. Over the years I've led design across complex B2B and B2C products — from 0→1 launches to turning around underperforming experiences at scale.
+
+My focus areas:
+- Product design & UX strategy
+- AI-assisted workflows
+- Design systems
+- Research and validation
+- Design leadership
+
+Testimonials from colleagues at EVBox, Devtech, and Google.
+
+---
+
+## Featured Projects
+
+| Project | Impact |
+|---|---|
+| **AI Coding Assistant** — Advanced Context Engineering | 56% higher suggestion accuracy · 2× faster task completion |
+| **EVBox** — Installer Experience, Reimagined | 96.5% connectivity success · 3× faster configuration · 88.7/100 experience score |
+| **EVBox Everon** — Broken Onboarding → Freemium Growth | 75% fewer support tickets · 66% faster onboarding · new revenue stream |
+| **EVBox Everon App** — Turning Around the EV App | App Store rating: 3.2 → 4.4 · Smartest Charger Award |
+| **Favreka App** — 0→1 Mobile App | Shipped in 10 weeks · scalable UI kit · strong user love |
+
+---
+
+## Tech Stack
+
+This portfolio is built with modern frontend tooling:
+
+- **Framework:** [Next.js 15](https://nextjs.org) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Components:** Radix UI + shadcn/ui
+- **Font:** Geist
+- **Analytics:** Vercel Analytics + Speed Insights
+- **Deployment:** Vercel
+
+---
+
+## Running Locally
+
+**Prerequisites:** Node.js 18+
 
 ```bash
+# Clone the repo
+git clone <your-repo-url>
+cd Portfolio
+
+# Install dependencies
+npm install
+
+# Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Other available commands
+npm run build   # Production build
+npm run start   # Start production server
+npm run lint    # Run ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                  # Next.js App Router pages
+│   └── projects/[slug]/  # Dynamic project case study pages
+├── components/           # UI components (Hero, Projects, Testimonials…)
+├── content/
+│   └── projects/         # Per-project case study content
+├── lib/                  # Data files (projects, testimonials)
+└── context/              # Animation and global state providers
+public/
+├── images/               # Project thumbnails and assets
+└── videos/               # Case study video assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **LinkedIn:** [linkedin.com/in/svetlanazharskaya](https://linkedin.com/in/svetlanazharskaya) *(update with your actual URL)*
+- **Behance:** [behance.net/svetlana-zharskaya](https://behance.net/svetlana-zharskaya) *(update with your actual URL)*
+- **Email:** *(add your email if you'd like)*
