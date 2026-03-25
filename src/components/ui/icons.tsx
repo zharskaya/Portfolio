@@ -347,3 +347,48 @@ export function StarIcon({ size = 24, className, ...props }: IconProps) {
 
   );
 }
+
+export function XIcon({ size = 24, className, ...props }: IconProps) {
+  const strokeWidth = size >= 24 ? 1.5 : 2;
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      className={className}
+      {...props}
+    >
+      
+      <path d="M20 4L4 20" />
+      <path d="M4 4L20 20"/>
+    </svg>
+  );
+}
+
+export function SwatchBookIcon({ size = 24, className, ...props }: IconProps) {
+  const strokeWidth = size >= 24 ? 1.5 : 2;
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      className={className}
+      {...props}
+    >
+
+    <path d="M11 18.0001L8 21H6L3.00001 18L3 3.0001L11 3L11 18.0001Z"/>
+    <path d="M16.7 13.0002L21 13V21L7 21.0002"/>
+    <path d="M10.8591 7.04062L13.8995 3.99992L19.5563 9.65677L9.65699 19.5564"/>
+    <path d="M7 17H7.01"/>
+  </svg>
+
+  );
+}

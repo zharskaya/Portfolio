@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Svetlana Zharskaya — Portfolio
 
-## Getting Started
+Personal portfolio site. Built with Next.js 15, React 19, TypeScript, Tailwind CSS, and Framer Motion. Deployed on Vercel.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Technology | Role |
+|---|---|
+| Next.js 15 | App Router, SSG, image optimization |
+| React 19 | UI framework |
+| TypeScript | Type safety |
+| Tailwind CSS | Utility-first styling |
+| Framer Motion | Scroll-triggered animations, layout transitions |
+| Radix UI | Accessible Dialog and Slot primitives |
+| Geist Mono | Primary typeface (monospace-first design) |
+| CVA | Component variant management |
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx                   # Root layout — fonts, metadata, providers
+│   ├── page.tsx                     # Home — Hero, Projects, Testimonials
+│   ├── globals.css                  # CSS custom properties, base styles
+│   └── projects/[slug]/page.tsx     # Dynamic case study pages (SSG)
+├── components/
+│   ├── hero.tsx                     # Animated intro with skills carousel
+│   ├── projects.tsx                 # Project grid with cards
+│   ├── testimonials.tsx             # Auto-rotating testimonial carousel
+│   ├── layout/                      # Header (sticky, animated) + Footer
+│   └── ui/                          # Primitives — Button, Card, Badge,
+│                                    #   ImageZoom, Sheet, Icons, ScrollToTop
+├── content/
+│   └── projects/                    # Case study components (project3–8.tsx)
+├── context/
+│   └── animation-provider.tsx       # Coordinates header/footer visibility
+│                                    #   during page-load animation cascade
+└── lib/
+    ├── projects-data.ts             # Project interface + data array
+    ├── testimonials-data.ts         # Testimonial data
+    └── utils.ts                     # cn() class merger, slugify()
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Two routes: `/` (home — hero, projects grid, testimonials) and `/projects/[slug]` (case studies, statically generated). Invalid slugs return 404.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Projects and testimonials live as TypeScript arrays in `src/lib/`. No CMS, no database. Each project has either a `slug` (internal route) or an `externalUrl` (Behance link). A `visible` flag controls what shows on the home page.
 
-## Learn More
+### Animation Cascade
 
-To learn more about Next.js, take a look at the following resources:
+Framer Motion orchestrates the home page entrance:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Hero animates in (title + skills carousel)
+2. Hero completes → header and footer fade in
+3. Projects and testimonials stagger into view on scroll
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`AnimationProvider` manages this globally. Case study pages skip the cascade — header renders immediately.
 
-## Deploy on Vercel
+### Patterns
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Client vs. Server:** Interactive components use `"use client"`. Case study pages are server components that dynamically `import()` client-side story components via Suspense.
+- **Styling:** Tailwind utilities + CSS custom properties (RGB triplets). Class merging via `cn()` (clsx + tailwind-merge).
+- **Icons:** Custom SVG icons in `components/ui/icons.tsx`. Projects use string-to-icon mapping (`iconMap`) resolved at render time.
+- **Images:** Next.js `<Image>` with WebP/AVIF. `ImageZoom` provides modal viewing with focus trapping and ESC-to-close.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Design System
+
+Monospace-first typography (`GeistMono` for headings and body, `Inter` as sans-serif fallback). Uppercase headings, tight line-height, wide tracking. Colors defined as RGB triplets in CSS custom properties (`--background`, `--foreground`, `--muted`, `--ghost`, `--border`). Mobile-first responsive layout with a `section-container` utility for consistent padding. Accessibility built in: skip-to-main link, semantic HTML, `prefers-reduced-motion`, focus trapping, ARIA attributes.

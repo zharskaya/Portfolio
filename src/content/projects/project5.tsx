@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { TrendingUp, Timer, CircleCheck, SwatchBook } from "lucide-react";
+import { TrendingUpIcon, StopwatchIcon, CircleCheckIcon, SwatchBookIcon } from "@/components/ui/icons";
 import Image from "next/image";
 import { ImageZoom } from "@/components/ui/image-zoom";
 import { motion } from "framer-motion";
@@ -89,28 +89,28 @@ export default function Project5Story() {
         </h3>
         <ul className='px-0 space-y-6'>
         <li className="flex gap-4">
-            <Timer className="h-5 w-5 mt-1 shrink-0 text-primary" />
+            <StopwatchIcon size={20} className="mt-1 shrink-0 text-primary" />
             <div>
               <div className='font-bold text-primary'>New brand rolled out in record time</div> 
               <div>Design proposal created and approved in under 3 weeks. Launched with minimum development overhead</div>
             </div>
           </li>
           <li className="flex gap-4">
-            <TrendingUp className="h-5 w-5 mt-1 shrink-0 text-primary" />
+            <TrendingUpIcon size={20} className="mt-1 shrink-0 text-primary" />
             <div>
               <div className='font-bold text-primary'>+40% stronger brand recognition</div> 
               <div>Post-launch feedback confirmed improved recall</div>
             </div>
           </li>
           <li className="flex gap-4">
-            <SwatchBook className="h-5 w-5 mt-1 shrink-0 text-primary" />
+            <SwatchBookIcon size={20} className="mt-1 shrink-0 text-primary" />
             <div>
               <div className='text-primary font-bold'>Maintained white-label support</div> 
               <div>Branding updates preserved flexibility for partner experiences</div>
             </div>
           </li>
           <li className="flex gap-4">
-            <CircleCheck className="h-5 w-5 mt-1 shrink-0 text-primary" />
+            <CircleCheckIcon size={20} className="mt-1 shrink-0 text-primary" />
             <div>
               <div className='font-bold text-primary'>WCAG 2.1 compliant</div> 
               <div>Resolved contrast issues to meet accessibility standards</div>

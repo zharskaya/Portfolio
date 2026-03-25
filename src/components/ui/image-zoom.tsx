@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Image, { ImageProps } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { XIcon } from "@/components/ui/icons";
 
 interface ImageZoomProps extends ImageProps {
   alt: string;
@@ -145,7 +145,7 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
               }}
               aria-label="Close image preview"
             >
-              <X className="w-5 h-5" />
+              <XIcon size={20} />
             </button>
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
