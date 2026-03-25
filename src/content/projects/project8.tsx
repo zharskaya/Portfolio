@@ -371,7 +371,6 @@ export default function Project8Story() {
               <video
                 src="/videos/otel-bin-01.mp4"
                 aria-label="v1 prototype showing hidden transformations and drag-n-drop"
-                controls
                 autoPlay
                 loop
                 muted
@@ -381,7 +380,7 @@ export default function Project8Story() {
               >
                 Your browser does not support the video tag.
               </video>
-              <figcaption>Prototype v1&nbsp;&mdash;&nbsp;<a href="https://zharskaya.github.io/OTEL-Project/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">try it live</a></figcaption>
+              <figcaption>Vibe-coded prototype v1&nbsp;&mdash;&nbsp;<a href="https://zharskaya.github.io/OTEL-Project/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">try it live</a></figcaption>
             </figure>
           </div>
         </div>
@@ -410,7 +409,6 @@ export default function Project8Story() {
               <video
                 src="/videos/otel-bin-02.mp4"
                 aria-label="v2 prototype showing visible transformations panel and explicit actions"
-                controls
                 autoPlay
                 loop
                 muted
@@ -420,7 +418,7 @@ export default function Project8Story() {
               >
                 Your browser does not support the video tag.
               </video>
-              <figcaption>Prototype v2&nbsp;&mdash;&nbsp;<a href="https://zharskaya.github.io/OTEL-Project-v2/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">try it live</a></figcaption>
+              <figcaption>Vibe-coded prototype v2&nbsp;&mdash;&nbsp;<a href="https://zharskaya.github.io/OTEL-Project-v2/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">try it live</a></figcaption>
             </figure>
           </div>
         </div>

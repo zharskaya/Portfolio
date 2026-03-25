@@ -328,7 +328,6 @@ export default function Project7Story() {
                   src="/videos/code-buddy-video-01.mp4"
                   aria-label="Animation showing a user selecting a JIRA issue to start an AI-assisted coding task"
                   aria-describedby="vid1-caption"
-                  controls
                   autoPlay
                   loop
                   muted
@@ -376,7 +375,6 @@ export default function Project7Story() {
                   src="/videos/code-buddy-video-02.mp4"
                   aria-label="Animation showing the AI assistant suggesting context items, with the user reviewing and adjusting them before proceeding"
                   aria-describedby="vid2-caption"
-                  controls
                   autoPlay
                   loop
                   muted
@@ -423,7 +421,6 @@ export default function Project7Story() {
                   src="/videos/code-buddy-video-03.mp4"
                   aria-label="Animation showing the AI assistant presenting an implementation plan for the user to review, edit, or approve"
                   aria-describedby="vid3-caption"
-                  controls
                   autoPlay
                   loop
                   muted

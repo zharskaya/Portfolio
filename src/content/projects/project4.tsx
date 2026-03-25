@@ -286,7 +286,6 @@ export default function Project4Story() {
                   src="/videos/new-onboarding-01.mp4"
                   aria-label="Animation showing a routing question that filters out lease drivers"
                   aria-describedby="vid2-caption"
-                  controls
                   autoPlay
                   loop
                   muted
@@ -316,7 +315,6 @@ export default function Project4Story() {
                   src="/videos/new-onboarding-02.mp4"
                   aria-label="Animation showing complex web-workflow vs simple mobile start screen"
                   aria-describedby="vid3-caption"
-                  controls
                   autoPlay
                   loop
                   muted
@@ -437,7 +435,6 @@ export default function Project4Story() {
                   src="/videos/new-onboarding-03.mp4"
                   aria-label="Notification after account creation telling the reseller to wait until the client accepts the Terms of Use."
                   aria-describedby="vid-compliance-caption"
-                  controls
                   autoPlay
                   loop
                   muted

@@ -663,7 +663,6 @@ export default function Project6Story() {
         <div className="aspect-video w-full mx-auto overflow-hidden">
           <video
             className="w-full h-full object-contain"
-            controls
             autoPlay={shouldAutoplay}
             loop
             muted
