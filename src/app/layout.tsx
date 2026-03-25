@@ -14,6 +14,9 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "Svetlana Zharskaya | Product Design Leader",
   description: "Portfolio of Svetlana Zharskaya, a Product Design Leader with a focus on AI-powered products, SaaS, and mobile apps",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
