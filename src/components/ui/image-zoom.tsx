@@ -161,9 +161,9 @@ export function ImageZoom({ alt, className = '', caption, ...props }: ImageZoomP
                 className="shadow-lg object-contain"
                 style={
                   fitMode === 'fit-width'
-                    ? { width: '100vw', height: 'auto', maxWidth: '100vw', maxHeight: 'none', objectFit: 'contain' }
+                    ? { width: '100%', height: 'auto', maxWidth: '100%', maxHeight: 'none', objectFit: 'contain' }
                     : fitMode === 'fit-height'
-                    ? { height: '100vh', width: 'auto', maxHeight: '100vh', maxWidth: 'none', objectFit: 'contain' }
+                    ? { height: '100vh', width: 'auto', maxHeight: '100vh', maxWidth: '100%', objectFit: 'contain' }
                     : { width: naturalSize?.width, height: naturalSize?.height, objectFit: 'contain' }
                 }
                 priority={false}

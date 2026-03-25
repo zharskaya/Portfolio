@@ -5,6 +5,7 @@ import { ScrollToTopButton } from '@/components/ui/scroll-to-top-button';
 import { SectionNav } from '@/components/ui/section-nav';
 
 const projectSections: Record<string, string[]> = {
+  project8: ["About", "Design Bets", "Prototype Arc", "Execution"],
   project3: ["About", "Signals of Success", "Design Process"],
   project4: ["About", "Outcome", "The Problem", "Design Decisions", "Demo"],
   project5: ["About", "Outcomes That Matter", "Design process"],

@@ -16,6 +16,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: '8',
+    slug: 'project8',
+    projectName: 'OTTL Editor',
+    title: 'Data Transformation. Rethought',
+    titleGhost: 'Rethought',
+    titleBold: 'Data Transformation.',
+    boldFirst: true,
+    description: 'Designed a UI for OpenTelemetry transformations that respects developer expertise — verb-based actions, inline editing, and two prototype iterations that traded surface flexibility for clarity',
+    tags: ['Interaction Design', 'Developer Experience', 'Prototyping'],
+    imageUrl: '/images/projects/project8-thumbnail.png',
+    impacts: [
+      { icon: 'Lightbulb', text: 'Reframed the brief before solving it' },
+      { icon: 'Zap', text: 'Two working prototypes in code' },
+      { icon: 'CircleCheck', text: 'One transferable design principle' },
+    ],
+    visible: true,
+  },
+  {
     id: '7',
     slug: 'project7',
     projectName: 'AI Coding Assistant',

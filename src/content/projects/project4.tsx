@@ -358,7 +358,7 @@ export default function Project4Story() {
           <div className="flex flex-col lg:flex-row w-full lg:items-start">
             <div className="w-full lg:w-1/3 lg:pr-12 xl:pr-20 lg:sticky lg:top-20 lg:self-start space-y-4 md:space-y-6">
               <div>
-                <span className="highlight text-primary">One option per screen</span>
+                <span className="highlight text-primary">1. One option per screen</span>
               </div>
               <p>The end of account activation offered two main options at once: activate station, activate card. Users froze.</p>
               <blockquote className="border-l-2 border-primary pl-4 italic text-muted-foreground">
@@ -392,7 +392,7 @@ export default function Project4Story() {
             
             <div className="w-full lg:w-1/3 lg:pr-12 xl:pr-20 lg:sticky lg:top-20 lg:self-start space-y-4 md:space-y-6">
               <div>
-                <span className="highlight text-primary">Value before commitment</span>
+                <span className="highlight text-primary">2. Value before commitment</span>
               </div>
               <p>Subscription selection during onboarding turned out to be a friction point. Everyone continued on the free tier anyway.</p>
               <blockquote className="border-l-2 border-primary pl-4 italic text-muted-foreground">
@@ -404,7 +404,7 @@ export default function Project4Story() {
             <div className="relative w-full lg:w-2/3 mt-4 lg:mt-0">
               <figure className="max-w-[1680px] mx-auto mt-0 bg-transparent">
                 <Image
-                  src="/images/projects/new-onboarding-03.jpg"
+                  src="/images/projects/new-onboarding-02.jpg"
                   alt="Before / after: subscription step removed from mobile onboarding"
                   width={1680}
                   height={632}
@@ -427,7 +427,7 @@ export default function Project4Story() {
           <div className="flex flex-col lg:flex-row w-full lg:items-start">
             <div className="w-full lg:w-1/3 lg:pr-12 xl:pr-20 lg:sticky lg:top-20 lg:self-start space-y-4 md:space-y-6">
               <div>
-                <span className="highlight text-primary">Compliance over speed</span>
+                <span className="highlight text-primary">3. Compliance over speed</span>
               </div>
               <p>Client acceptance of terms is required before assets can be activated. This added friction but ensured legal compliance&nbsp;&mdash; a trade-off we accepted deliberately.</p>
             </div>
